@@ -1,0 +1,105 @@
+% Remigiusz
+\section{Wielomian Jonesa}
+W tej sekcji zbadamy inny wielomianowy niezmiennik węzłów, wielomian Jonesa.
+Został odkryty w 1984 roku przez Vaughana Jonesa, znajduje zastosowanie między innymi przy badaniu węzłów przemiennych.
+
+\subsection{Nawias Kauffmana}
+Zaczniemy od zdefiniowania nawiasu Kauffmana.
+Przypomnijmy, wielomian Laurenta zmiennej $X$ to formalny symbol $f=a_r X^r + \ldots + a_s X^s$, gdzie $r, s, a_r, \ldots, a_s$ są całkowite i $r \le s$.
+
+\begin{definicja}
+	\emph{Nawias Kauffmana} $\langle D \rangle$ dla diagramu splotu $D$ to wielomian Laurenta zmiennej $A$, który jest niezmienniczy ze względu na gładkie deformacje diagramu, a przy tym spełnia trzy aksjomaty:
+	\begin{enumerate}
+		\item $\langle \NieWezel \rangle=1$
+		\item $\langle D \sqcup \NieWezel \rangle = (-A^{-2} - A^2) \langle D \rangle$
+		\item $\langle \PrawyKrzyz \rangle = A \langle \PrawyGladki \rangle + A^{-1} \langle \LewyGladki  \rangle$
+	\end{enumerate}
+\end{definicja}
+
+Tutaj $\NieWezel$ oznacza standardowy diagram dla niewęzła, $D \sqcup \NieWezel$ jest diagramem, który powstaje z $D$ przez dodanie nieprzecinającej go krzywej zamkniętej, zaś trzy symbole $\PrawyKrzyz$, $\PrawyGladki$ oraz $\LewyGladki $ odnoszą się do diagramów, które są identyczne wszędzie poza małym obszarem.
+Diagramy $\PrawyGladki$ oraz $\LewyGladki$ nazywa się odpowiednio dodatnim (prawym) i ujemnym (lewym) wygładzeniem $\PrawyKrzyz$
+
+\begin{lemat}
+	Nawias Kauffmana dowolnego diagramu można wyznaczyć w skończonym czasie.
+\end{lemat}
+
+\begin{proof}
+	Jeżeli diagram $D$ ma $n$ skrzyżowań, to nieustanne stosowanie aksjomatu trzeciego pozwala na zapisanie $\langle D \rangle$ jako sumy $2^n$ składników, z których każdy jest po prostu zamkniętą krzywą i ma trywialny nawias ($\langle \MalyNieWezel \rangle = 1$).
+	Nawias sumy wyznacza się korzystając z drugiego aksjomatu.
+\end{proof}
+
+Przedstawimy teraz wpływ ruchów Reidemeistera na nawias Kauffmana.
+
+\begin{lemat}
+	Pierwszy ruch Reidemeistera zmienia nawias Kauffmana zgodnie z poniższą regułą.
+	Pozosałe ruchy Reidemeistera nie zmieniają nawiasu.
+	\[
+		% pierwszy ruch Reidemeistera
+		\left\langle\begin{tikzpicture}[scale=0.05, baseline=-6]
+			\clip (-12,-12) rectangle (1,7);
+			\path[ARC] (-10,7) .. controls (-10,3) and (-10,0) .. (-6,-4);
+			\path[ARC] (-6,0) .. controls (2,8) and (2,-10) .. (-6,-4);
+			\path[ARC] (-10,-11) .. controls (-10,-8) and (-10,-5) .. (-9,-4);
+		\end{tikzpicture}\right\rangle
+		= -A^{-3}
+		\left\langle\ \begin{tikzpicture}[scale=0.05,baseline=-6]
+			\path[ARC] (-10,7) -- (-10,-11);
+		\end{tikzpicture}\ \right\rangle
+		\,\bullet\,
+		% drugi ruch Reidemeistera
+		\left\langle\begin{tikzpicture} [scale=0.04,baseline=-5]
+			\path[ARC](0,10) .. controls (10,5) and (10,-9) .. (0,-14);
+			\path[ARC] (10,10) .. controls (8,9) .. (7,8);
+			\path[ARC] (3,4.5) .. controls (-1,0) and (-1,-4) .. (3,-8);
+			\path[ARC] (10,-14) .. controls (8,-13) .. (7,-12);
+		\end{tikzpicture}\right\rangle
+		=
+		\left\langle\ \begin{tikzpicture} [scale=0.04, baseline=-5]
+		\path[ARC] (0,10) .. controls (3,8) and (3,0) .. (3,-2) .. controls (3,-4) and (3,-12) .. (0,-14);
+		\path[ARC] (10,10) .. controls (7,8) and (7,0) .. (7,-2) .. controls (7,-4) and (7,-12) .. (10,-14);
+		\end{tikzpicture}\ \right\rangle
+		\,\bullet\,
+		% trzeci ruch Reidemeistera
+		\left\langle\begin{tikzpicture} [scale=0.04, auto, baseline=-6] %Reidemeister 3 left
+			\path[ARC] (-10,10) -- (-6.6,6);
+			\path[ARC] (-4,3) -- (10,-14);
+			\path[ARC] (10,10) -- (6.6,6);
+			\path[ARC] (4,3) -- (1.6,0);
+			\path[ARC] (-1.6,-4) -- (-10,-14);
+			\path[ARC] (-14,-2) .. controls (-6, -2) and (-6,8) .. (0,8);
+			\path[ARC] (14,-2) .. controls (6, -2) and (6,8) .. (0,8);
+		\end{tikzpicture}\right\rangle
+		=
+		\left\langle\begin{tikzpicture} [scale=0.04, auto, baseline=-6] %Reidemeister 3 right
+			\begin{scope}[xshift=1300,rotate=180,yshift=110]
+				\path[ARC] (-10,10) -- (-6.6,6);
+				\path[ARC] (-4,3) -- (10,-14);
+				\path[ARC] (10,10) -- (6.6,6);
+				\path[ARC] (4,3) -- (1.6,0);
+				\path[ARC] (-1.6,-4) -- (-10,-14);
+				\path[ARC] (-14,-2) .. controls (-6, -2) and (-6,8) .. (0,8);
+				\path[ARC] (14,-2) .. controls (6, -2) and (6,8) .. (0,8);
+			\end{scope}
+		\end{tikzpicture}\right\rangle.
+	\]
+\end{lemat}
+
+\subsection{Spin}
+
+\subsection{Wielomian Jonesa}
+
+\subsection{Relacja kłębiasta}
+Dotychczas wyznaczyliśmy wielomian Jonesa jedynie dla trywialnych splotów.
+Spowodowane jest to tym, że chociaż nawias Kauffmana jest przydatny przy dowodzeniu różnych własności, to zupełnie nie nadaje się do obliczeń.
+Dużo lepszym narzędziem jest następujące twierdzenie.
+
+\begin{twierdzenie}[relacja kłębiasta]
+	Wielomian Jonesa spełnia równość $V(\NieWezel) = 1$ oraz relację
+	\[
+		t^{-1} V(L_+) - tV(L_-) + (t^{-1/2} - t^{1/2}) V(L_0) = 0,
+	\]
+
+	gdzie $L_+$, $L_-$, $L_0$ to zorientowane sploty, kóre różnią się jedynie na małym obszarze: $\PrawyKrzyz$
+
+\end{twierdzenie}
+\subsection{Odwrotności, lustra i sumy}
