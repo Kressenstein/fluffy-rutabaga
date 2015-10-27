@@ -7,3 +7,9 @@ Wprowadzenie do teorii węzłów.
 3. W. Lickorish: An Introduction to Knot Theory
 4. L. Kauffman: Formal Knot Theory
 5. [wolfram](http://mathworld.wolfram.com/Knot.html), [wiki](https://en.wikipedia.org/wiki/Knot_theory)
+
+## Słowniczek
+* mirror: lustro
+* reverse: odwrotność
+* skein relation: relacja kłębiasta
+* writhe: spin
