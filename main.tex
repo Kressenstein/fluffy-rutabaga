@@ -4,9 +4,11 @@
 \usepackage{microtype}
 
 %\usepackage{parskip}
-\usepackage{amssymb, amsmath, amsthm}
-\usepackage{lipsum}
-\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\interdisplaylinepenalty=2500
+\usepackage{amssymb}
+\usepackage{hyperref}
 
 \input{main_cuts}
 \input{main_tikz}
@@ -38,7 +40,11 @@
 
 %\input{3/chapter_3}
 
+
+
 \input{4/chapter_4}
+
+
 
 \newpage
 
@@ -46,16 +52,21 @@
 
 \section*{Starsze materiały}
 
-\emph{Linking number}: suma znaków skrzyżowań, rozróżnia splot Hopfa od Whiteheada.
-\emph{Crossing number}: najmniejsza możliwa liczba skrzyżowań na diagramie.
-Nowe węzły: lustro, odwrócenie, suma rozłączna i suma spójna.
+Co potrafimy odróżnić od siebie?
+\begin{enumerate}
+\item splot Hopfa od splotu Whiteheada \dotfill linking number, suma znaków skrzyżowań
+\item trójlistnik od odbicia \dotfill wielomian Jonesa
+\item dowolne dwa węzły pierwsze o mniej niż dziesięciu skrzyżowaniach \dotfill  wielomian Jonesa
+\end{enumerate}
 
-\textbf{Wielomian Alexandera}: wyznacznik pewnej macierzy ze skreśloną kolumną i wierszem.
-\textbf{Wielomian Jonesa} $V$: należy do $\mathbb Z[t^{1/2}, t^{-1/2}]$; wielomian niewęzła to $1$, spełniona jest \emph{skein relation}, to znaczy: $t^{-1}V(L_+)-tV(L_-)+(t^{-1/2}-t^{1/2})V(L_0)=0$.
+Adams: notacja Dowkera, Conwaya.
 
-Adams: notacja Dowkera, Conwaya. Węzły torusowe (5.1), węzły satelitarne i hiperboliczne.
+Węzły torusowe (5.1), węzły satelitarne i hiperboliczne.
+
 Warkocze (5.4), wielomiany HOMFLY (6.3).
+
 \emph{Bachelor's unknotting}.
+
 Arf.
 
 \end{document}		
