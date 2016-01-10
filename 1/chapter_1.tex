@@ -13,140 +13,356 @@ Trochę historii (najpierw Alexander, potem Reidemeister, potem jeszcze ktoś...
 
 Intuicja, kilka wstępnych przykładów... (muszę się nauczyć tej magicznej techologii służącej do rysowania tych... węzłów)
 
-
-
-\section{Moja część...}
-
-Jest dość dużo (więcej niż trzy) definicji węzła. Każda z nich w pewnym sensie oddaję intuicję, która kryje się za potocznym rozumieniem nazwy tego pojęcia. W tym rozdziale podamy 
-jedną z nich. Powiemy też, co to znaczy, że dwa węzły są równoważne, tj. zastanowimy się, kiedy mając dane dwa węzły jesteśmy wstanie zdeformować jeden z nich (powiemy też, co to znaczy zdeformować), 
-aby otrzymać drugi. Na koniec sformułujemy i udowodnimy twierdzenie Reidemeister'a, które dostarczy nam potężnych narzędzi do rozstrzygania, kiedy dane dwa węzły są równoważne.
-
-\subsection{Sformuowanie definicji węzła}
-
-Tutaj powiem, czemu jakieśtam podejście jest złe...
-
-Trararam! Teraz podaję lepsze, od tego złego i mówię czemu jest lepsze...
-
+\section{Rozdział Pierwszy}
+ 
+Jest dość dużo (więcej niż trzy) definicji węzła. Każda z nich w pewnym sensie oddaję intuicję, która kryje się za potocznym rozumieniem nazwy tego pojęcia. W tym rozdziale podamy
+jedną z nich.
+Powiemy też, co to znaczy, że dwa węzły są równoważne, tj. zastanowimy się, kiedy mając dane dwa węzły jesteśmy wstanie równoważnie (nie zmieniając ''ciągłej struktury'')
+przekształcić jeden z nich, aby otrzymać drugi. Zastanowimy się nad tym, jakie przekształcenia możemy uważać za równoważne. Na koniec sformułujemy i udowodnimy
+twierdzenie Reidemeistera.
+ 
+\subsection{Definicja}
+ 
+Zaczniemy ten rozdział do sformuowania definicji węzła. Kiedy definiuje się matemayczne pojęcie ważne jest (przynajmniej takie wrażenie ma autor tej części pracy),
+żeby definicja odpowiadała naszym oczekiwaniom, tj. żeby gwarantowała oczekiwane własności, a jednocześnie zachowywała możliwie jak największy
+stopień ogólności.
+ 
+Na pierwszy rzut oka następujące podejście wygląda dość rozsądnie.
+ 
+ 
 \begin{definicja}
- Węzeł to łamana w $\mathbb{R}^3$ bez samoprzecięć.
+\label{zla_definicja}
+ Węzłem nazywamy ciągłą funkcję $f\colon[0,1]\to\mathbb{R}^3$, która jest ciągła i spełnia następujące własności:
+ \begin{enumerate}
+  \item $f(0) = f(1)$,
+  \item $\forall x,y\in(0,1) \ \ \ f(x) = f(y)\Rightarrow x = y$.
+ \end{enumerate}
 \end{definicja}
-
+ 
+W rzeczywistości ma ono dość poważne wady.
+Po pierwsze, powyższa definicja dopuszcza tak zwane dzikie węzły (rysunek poniżej), co jest sprzeczne z intuicyjnym pojmowaniem węzła, który może mieć
+jedynie skończenie wiele pętli.
+ 
+Po drugie wychodząc od definicji \ref{zla_definicja} mielibyśmy kłopot z określeniem tego, kiedy dane dwa węzły są równoważne. Naturalną definicją wydaje się
+następująca: węzły $K$ i $J$ uważamy za równoważne, gdy istnieje rodzina węzłów $\lbrace K_t\rbrace_{t\in[0,1]}$, taka że $K_0 = K$, oraz $K_1 = J$. Oprócz tego
+węzły $K_t$ i $K_s$ powinny leżeć dowolnie ''blisko'' dla $t$ dostatecznie bliskich $s$. W sensie tej definicji (nie wnikając w to, co oznacza,
+że dwa węzły leżą ''blisko''), niewęzeł jest równoważny trójlistnikowi (patrz rysunek poniżej).
+ 
+Rozwiązanie naszych problemów okazuje się zaskakująco proste. Zamiast definiować węzeł za pomocą ciągłej krzywej, moża posłużyć się łamaną. Skąd tem pomysł? Łamana ma skończenie wiele
+wierzchołków, zatem powinniśmy bez specjalnych problemów wykluczyć z naszych rozważań tak zwane dzikie węzły. Przekształcenia równoważne ''powinny'' nie zmieniać relacji liniowej niezależności
+pomiędzy wierzchołkami węzła (jak później się okaże), zatem nie powinniśmy się obawiać, że w jakiś złośliwy i nieoczekiwany sposób pojedyncza pętla okaże się równoważna niewęzłowi.
+ 
+ 
+ 
 \begin{definicja}
- Wierzchołek węzła...
+ Odcinkiem domkniętym łączącym parę różnych punktów $p,q\in\mathbb{R}^3$ nazwiemy zbiór
+ \begin{displaymath}
+  [p,q] := \lbrace \lambda p + (1-\lambda)(q-p): \lambda\in[0,1]\rbrace.
+ \end{displaymath}
 \end{definicja}
-
+ 
 \begin{definicja}
- Splot - rozłączna suma węzłów...
+ Niech $p_1, p_2, \ldots, p_n\in\mathbb{R}^3$ będą parami różne. Łamaną o wierzchołkach $p_i$ nazwiemy zbiór
+ \begin{displaymath}
+  \bigcup_{i=1}^n [p_i, p_{i+1}].
+ \end{displaymath}
+ Łamaną tej postaci będziemy oznaczać przez $(p_1, p_2, \ldots, p_n)$. Gdy $p_1 = p_n$ mówimy o łamanej zamkniętej.
+ Jeśli dodatkowo każdy punkt łamanej należy do dokładnie jednego odcinka (poza krańcami odcinków), mówimy wtedy o łamanej bez samoprzecięć. Odcinek $[p_i, p_{i+1}]$ będziemy dalej krótko oznaczać przez $I_i$.
 \end{definicja}
-
+ 
+\begin{definicja}
+ Węzeł to łamana zamknięta w $\mathbb{R}^3$ bez samoprzecięć.
+\end{definicja}
+ 
+\textbf{Uwaga} Jeśli węzeł $K$ to łamana $(p_1, p_2, \ldots, p_n)$, wówczas zbiór $(p_{\sigma(1)}, p_{\sigma(2)},\ldots, p_{\sigma(n)})$, gdzie $\sigma$ to cykl długości $n$
+definiuje ten sam węzeł $K$.
+Co więcej, jeśli dla pewnego $i$ punkty $p_{i-1}, p_i, p_{i+1}$ są współliniowe, to oczywiście $K = (p_1, p_2, \ldots, p_{i-1}, p_{i+1}, \ldots, p_n)$. Z ostatniego spostrzeżenia łatwo
+można wywnioskować, że węzeł jest jednoznacznie wyznaczony przez minimalny (w sensie inkluzji) zbiór wierzchołków łamanej, która ten węzeł definiuje.
+ 
+\begin{definicja}
+ Niech uporządkowany zbiór $(p_1, p_2,\ldots, p_n)$ definiuje węzeł $K$. Jeśli żaden jego właściwy podzbiór nie definiuje węzła $K$, wówczas elementy zbioru $\lbrace p_1, p_2, \ldots, p_n\rbrace$
+ nazwiemy wierzchołkami węzła $K$.
+\end{definicja}
+ 
+Od tego momentu będziemy definiować węzeł poprzez łamane o minimalnej liczbie wierzchołków, chyba, że zostanie powiedziane inaczej. Na koniec tego podrozdziału podamy definicję splotu węzłów.
+ 
+\begin{definicja}
+ Splotem nazywamy sumę (mnogościową) skończenie wielu parami rozłącznych węzłów. Każdy jeden :) taki węzeł nazywamy składową splotu. W szcze gólmności węzeł jest splotem o jednej skłądowej.
+ Nie-splotem nazwiemy sumę skończenie wielu rozłącznych niewęzłów (okręgów) leżących w jednej płaszczyźnie.
+\end{definicja}
+ 
+\textbf{Uwaga} W przypadku nie-splotu warunek leżenia w jednej płaszczyźnie jest istotny. Aby się o tym przekonać czytelnik może zechcieć odpowiedzieć na pytanie,
+jak mogą leżeć względem siebie rozłączne okręgi w $\mathbb{R}^3$, a jak muszą w $\mathbb{R}^2$.
+ 
 \subsection{Równoważność węzłów}
-% Skoro już w sposób ścisły zdefiniowaliśmy pojęcie węzła, możemy zastanowić się, jak sformalizować operację przekształcenia węzła w inny węzeł. Oczywiście możemy potraktować węzeł, 
-% jako pewien podzbiór w $\mathbb{R}^3$ i powiedzieć, że możemy określić na owym podzbiorze dowolną funkcję, ale to raczej nudne podejście. Chcielibyśmy wiedzieć, kiedy obarzem takiej
-% funkcji będzie węzeł, i ''jak bardzo'' będzie się on różnił od węzła wyjściowego. 
-Trochę gadki wstępnej dotyczącej potrzeby wprowadzenia relacji równoważności, tzn. kiedy węzły, które wyglądają trochę inaczej w istocie są tym samym węzłem.
-
-
+W tym podrozdziale zastanowimy się nad tym, kiedy dwa, pozornie różne węzły, w istocie możemy uważać za takie same (mimo iż explicite nie są tym samym węzłem).
+Zaczniemy od zdefiniowania kilku pojęć.
+ 
 \begin{definicja}
- Elementarnym przekształceniem węzła nazywamy...
+\label{elementarne_p}
+ Niech dane będą węzły $J = (p_0, p_1, p_2, \ldots, p_n)$ oraz $K = (p_1, p_2, \ldots, p_n)$.
+ Powiemy, że $J$ powstaje przez elementarnye przekształcenie węzła $K$ gdy:
+ \begin{enumerate}
+  \item punkt $p_0$ nie jest współliniowy z $p_{1}$ oraz z $p_{n}$,
+  \item część wspólna trójkąta (brzegu trójkąta) o wierzchołkach w punktach $p_0, p_1, p_n$ z węzłem $K$ zawiera się w odcinku $[p_1, p_n]$.
+ \end{enumerate}
+ Przekształcenie odwrotne do elementarnego również jest przekształceniem elementarnym.
 \end{definicja}
-
+\textbf{Uwaga} Powyższą definicję można uogólnić zastępując węzeł $K$ węzłem $(p_0, p_1,\ldots, p_{i-1},p_{i+1}, \ldots, p_n)$ dla $i = 1,2,\ldots n-1$, oraz zastępując wierzchołki
+$p_0, p_1, p_n$ wierzchołkami $p_i, p_{i-1}, p_{i+1}$ odpowiednio.
+ 
 \begin{definicja}
- Mówimy, że węzły $J$ i $K$ są równoważne, gdy...
+ Mówimy, że węzły $J$ i $K$ są równoważne, gdy istnieje skończony ciąg węzłów $K_0, K_1, \ldots, K_n$, gdzie $K_0$ = $K$, $K_n = J$, oraz $K_{i+1}$ powstaje przez pewne elementarne
+ przekształcenie węzła $K_i$.
 \end{definicja}
-
-Sprawdzenie, że podana relacja jest w istocie relacją równoważności pozostawiamy czytelnikowi jako ćwiczenie (dobrze?...)
-
-Gadka-szmatka: utożsamiamy z sobą węzły równoważne, mówimy, że dwa węzły, to ten sam węzeł, gdy te dwa węzły są równoważne.
-
-\subsection{Diagramy i rzuty węzła na płaszczyznę}
-Od początku tej pracy, artykułu (? trzeba uzgodnić terminologię) z konieczności rysowaliśmy węzły (obiekty żyjące w przestrzeni trójwymiarowej) na płaszczyźnie. 
-Niestety, masowa technologia nie pozwala jeszcze na  pisanie prac w formie hologramów, nad czym wszyscy czterej autorzy mniej lub bardziej ubolewają. Głównym celem
-tego podrozdziału jest pokazanie, że jeśli dwa różne węzły są reprezentowane przez ten sam dwuwymiarowy rysunek, to są równoważne.
-
+ 
+Sprawdzenie, że podana relacja jest w istocie relacją równoważności pozostawiamy czytelnikowi jako proste ćwiczenie.
+ 
+Dla przykładu rozważmy dowolny $n$-kąt wypukły na płaszczyźnie. Można łatwo pokazać przez indukcję (po liczbie wierzchołków), że każdy taki wielokąt jest niewęzłem. Istotnie, dla trójkąta
+teza jest oczywista. Załóżmy jej prawdziwość dla wszystkich liczb naturalnych nie większych, niż $n$. Mając dowolny $n+1$-kąt wypukły $J = (k_0, k_1, k_2, \ldots, k_n)$ łatwo się przekonać,
+że jest on elementarnym przekształceniem $n$-kąta $ K = (k_1, k_2, \ldots, k_n)$. To, że $K$ jest wielokątem wypukłym, podobnie jak to, że pierwszy warunek z definicji \ref{elementarne_p} jest spełniony, jest oczywiste.
+Drugi warunek jest spełniony, ponieważ z wypukłości $K$ zachodzi $\left([p_0,p_1]\cup [p_0, p_n]\right) \cap K = \lbrace p_1, p_n\rbrace$.
+ 
+Od tej chwili węzły równoważne będziemy uważać za tożsame, to znaczy zamiast pisać, że węzeł $J$ jest równoważny węzłowi $K$, będziemy pisać krótko $J=K$.
+Odróżniać będziemy tylko te węzły, które nie są równoważne.
+ 
+\subsection{Diagram}
+Od początku tej pracy, z konieczności rysowaliśmy węzły (obiekty żyjące w przestrzeni trójwymiarowej) na płaszczyźnie.
+W tym podrozdziale podamy ścisłą definicję tych dwuwymiarowych rysunków (diagramów) i pokażemy, że jeśli dwa węzły mają przedstawienie w postaci tego samego diagramu,
+to są w istocie równoważne.
+ 
 \begin{definicja}
- Rzutem na płaszczyznę nazywamy...
+ Rzutem zbioru $A\subseteq\mathbb{R}^3$ na płaszczyznę nazwiemy funkcję $p\colon A\to\mathbb{R}^2$ określoną wzorem $p(x,y,z) = (x,y)$. Kiedy $A$ jest węzłem, $p[A]$ nazywamy
+ rzutem węzła $A$ na płaszczyznę.
 \end{definicja}
-
-Rzuty na płaszczyznę różnych (nierównoważnych) węzłów mogą być równe. Chcemy jednak mówić o takich ``ładnych'' rzutach...
-
+ 
+ 
 \begin{definicja}
- Rzutem regularnym nazywamy takie rzutowanie węzła, że...
+\label{rzut_reg}
+ Rzutem regularnym węzła $K$ nazywamy takie rzutowanie $p$ węzła $K$ na płaszczyznę, że
+ \begin{enumerate}
+  \item dla każdego wierzchołka $v$, dla każdego $a\in K$ jeśli $p(v) = p(a)$, to $p=a$,
+  \item dla każdych $a_1, a_2, a_3$ jeśli $p(a_1)=p(a_2)=p(a_3)$, to $a_1=a_2$ lub $a_1=a_3$ lub $a_2=a_3$.
+ \end{enumerate}
 \end{definicja}
-
-Diagram to rzut + info o góra-dół.
-
-\begin{definicja}
- Diagramem węzła nazywamy...
-\end{definicja}
-
-Trzeba wyraźnie powiedzieć, że różne węzły mogą mieć ten sam diagram (np. w diagramie nie ma info o tym, jak wysoko jeden łuczek przechodzi pod drugim). 
-Okazuje się jednak, że jeśli dwa różne węzły mają ten sam diagram, to są one równoważne. Aby to udowodnić potrzebujemy zdefiniować kilka pojęć pomocniczych...
-
-
+ 
+Zakładająć, że węzeł ma regularny rzut na płaszczyznę, możemy w ścisły sposób zdefiniować pojęcie diagramu.
+Diagramem węzła $K$ nazywamy następującą modyfikację regularnego rzutu $K$ na płaszczyznę. Jeśli przeciwobrazem punktu $(x_0, y_0)$ jest zbiór dwuelementowy
+$\lbrace a,b\rbrace$, wówczas w tym punkcie przecinają się dwa różne odcinki, które są rzutami dwóch różnych odcinków węzła $K$, powiedzmy $I_a, I_b$.
+Ponieważ rzut $K$ jest rzutem regularnym, więc jeden z tych odcinków leży pod drugim, co oznaczamy, jak na poniższym rysunku.
+ 
 \begin{definicja}
  Mówimy, że dwa węzły $(p_i)$, $(q_j)$ są od siebie odległe o mniej, niż $t$, gdy mają tyle samo wierzchołków i gdy dla każdej pary wierzchołków zachodzi $d(p_k,q_k) < t$.
 \end{definicja}
-
+ 
+Udowodnimy teraz twierdzenie, które zagwarantuje nam, że dla każdego węzła można znaleźć węzeł dowolnie mu bliski, którego rzut na płaszczyznę jest regularny.
+Będziemy do tego potrzebować następujących lematów.
+ 
+\begin{lemat}
+\label{LEM1}
+ Dla dowolnego węzła $K = (v_1, \ldots, v_i, \ldots, v_n)$ i dowolnego $i = 1,2,\ldots n$ istnieje taki $\epsilon > 0$, że dla każdego $v'\in B(v_i, \epsilon)$
+ węzły $K$ oraz $(v_1, \ldots, v', \ldots, v_n)$ są równoważne.
+\end{lemat}
+\begin{proof}
+ 
+Ustalmy dowolne $i$. Dodawanie i odejmowanie indeksów w dalszej części dowodu należy rozumieć jak działanie modulo $n+1$. Możemy założyć, że punkty $v_{i-1}, v_i, v_{i+1}$ nie są
+współliniowe. Zaczniemy dowód od skonstruowania dwóch stożków.
+Stożek o wierzchołku $w$, środku podstawy $s$ i promieniu podstawy $r$ będę oznaczał $S(s,r,w)$.
+ 
+Niech $p\in\mathbb{R}^3$ będzie wektorem długości jeden prostopadłym do odcinków $I_{i-1}$ oraz $I_i$. Oznaczmy przez $\alpha$ kąt pomiędzy odcinkami
+$I_{i-2}$ i $I_{i-1}$.
+Dobierzmy tak małą $\mu\in\mathbb{R}^3$, żeby kąt pomiędzy $I_{i-1}$ oraz $[v_{i-1}, v_i + \mu p]$ był mniejszy od $\alpha$. Możemy $\mu$ wyliczyć np. używając trygonometrii
+w trójkącie prostokątnym o wierzchołkach $v_{i-1}, v_i, v_i + r\cdot p$, gdzie $r\in\mathbb{R}_+$. Połóżmy
+\begin{displaymath}
+ \epsilon = \frac{1}{2}\min\lbrace d(I_{i-1}, K\setminus(I_{i-2}\cup I_i)), \mu\rbrace, \hbox{ oczywiście }\epsilon>0.
+\end{displaymath}
+Wtedy
+\begin{enumerate}
+ \item $S(v_i, \epsilon, v_{i-1})\cap K \subseteq I_{i-1}\cup I_i$,
+ \item dla każdej $\delta\in(0,\epsilon)$ zachodzi $[v_{i-1}, v_i+\delta p]\subseteq S(v_i, \epsilon, v_{i-1})$.
+\end{enumerate}
+Zauważmy, że $d(v_i, cl(K\setminus(I_{i-1}\cup I_i)) > 0$, więc (jako że $\mathbb{R}^3$ jest $T_4$) można znaleźć takie
+$\gamma > 0$, że $B(v_i,\gamma)\cap cl(K\setminus(I_{i-1}\cup I_i)) = \emptyset$. Możemy wziąć takie $\gamma$, żeby $\gamma < \epsilon$.
+ 
+Wtedy stożek
+$S_{i-1} = S(v_i + \gamma(v_i-v_{i-1}), \epsilon, v_{i-1})$ spełnia własność $1$ oraz własność
+\begin{displaymath}
+ \hbox{dla każdego }v'\in B(v_i, \gamma) \ \ [v_{i-1}, v']\subseteq S_{i-1}.
+\end{displaymath}
+ 
+ 
+W analogiczny sposób konstruujemy stożek $S_i = S(v_i + \gamma'(v_i - v_{i+1}), \epsilon', v_{i+1})$. Zbiory $S_{i-1}$ i $S_i$ mają niepuste wnętrza, oraz
+$v_i\in int(S_i)\cap int(S_{i+1})$. Istnieje więc taka liczba $r>0$, że $B(v_i, r)\subseteq S_i\cap S_{i+1}$.
+ 
+Owe stożki pomogą nam pokazać, że dla każdego $v'\in B(v_i, r)$ węzeł $(v_1, \ldots, v', \ldots, v_n)$ jest równoważny $K$.
+ 
+Ustalmy $v'\in B(v_i, r)$. Wtedy odcinki $[v_{i-1}, v'], [v',v_i], [v', v_{i+1}]$ należą do zbioru $S_i\cup S_{i-1}$, który jest rozłączny z $K\setminus(I_{i-1}\cup I_i)$.
+Rozważmy dwa przypadki.
+ 
+Jeżeli $v'\in I_i$ (gdy $v'\in I_{i-1}$, to postępujemy analogicznie), to węzeł $K$ można zdefiniować za pomocą łamanej $(v_1, \ldots, v_i, v', v_{i+1}, \ldots, v_n)$. Ponieważ
+wnętrze odcinka $[v_{i-1}, v']$ jest rozłączne z $K$, więc $K$ jest równoważny węzłowi $(v_1, \ldots, v_{i-1}, v', v_{i+1}, \ldots, v_n)$.
+ 
+Jeśli $v'\not\in I_i\cup I_{i-1}$, wówczas wnętrze odcinka $[v_i, v']$ jest rozłączne z $I_i\cup I_{i-1}$. Rozważmy odcinek $[v_{i-1}, v']$, jeśli przecina on odcinek $I_i$, to
+wtedy odcinek $[v', v_i]$ nie przecina odcinka $I_{i-1}$, zatem bez zmniejszenia ogólności możemy założyć, że wnętrze odcinka $[v_{i-1}, v']$ jest rozłączne z $K$. Tworzymy
+następujący ciąg
+\begin{displaymath}
+ K_0 = K, K_1 = (v_1,\ldots, v_{i-1}, v', v_i, \ldots, v_n), K_2 = (v_1,\ldots, v_{i-1}, v', \ldots, v_n).
+\end{displaymath}
+Czytelnik zechce się sam przekonać, że jest to ciąg przekształceń elementarnych.
+Kładziemy $K' = K_2$ i kończymy dowód.
+\end{proof}
+\textbf{Uwaga} Ponieważ funkcja
+ $ d(x,y)\mapsto d(p(x), p(y))$ jest nierosnąca, więc przy oznaczeniach, jak w dowodzie lematu zachodzi $p(v')\in B(p(v_i),\epsilon)$.
+\begin{wniosek}
+ Translacja węzła o odwolny wektor nie zmienia jego klasy równoważności.
+\end{wniosek}
+ 
+ 
+\begin{lemat}
+ \label{LEM2}
+ Rozpatrzmy węzeł $K = (v_1, \ldots, v_n)$. Niech $p$ oznacza rzut na płaszczyznę. Dla każdego $i$, dla każdego $\epsilon > 0$ istnieje węzeł
+ węzeł $J = (q_1, \ldots, q_i, \ldots q_n)$ równoważny węzłowi $K$ odległy od $K$ o mniej niż $\epsilon$ oraz spełniający:
+ dla dowolnego $r\in J$ i dla dowolnego $i$ zachodzi $p(q_i)\neq p(r)$, gdzie $p$ oznacza rzut prostokątny na płaszczyznę $OXY$.
+\end{lemat}
+ \begin{proof}
+  Niech $i$ będzie dowolne.
+  Niech $\epsilon'$ będzie dobrany do wierzchołka $v_i$, jak w tezie lematu \ref{LEM1}. W razie potrzeby możemy go zmniejszyć, tak by $\epsilon'<\epsilon$.
+  Zauważmy, że $p[B(v_i, \epsilon')] = B(p(v_i),\epsilon')$, gdzie kula po lewej stronie równości jest z $\mathbb{R}^3$, a po prawej z $\mathbb{R}^2$. Ponieważ zbiór $p(K)$ jest nigdziegęstym podzbiorem płaszczyzny, więc możemy wybrać taki $q_i\in B(v_i, \epsilon')$,
+  że $p[\lbrace q_i\rbrace]\cap p[K] = \emptyset$. Otrzymujemy w ten sposób nowy węzeł $(v_1, \ldots, q_i, \ldots, v_n)$. Powtarzamy opisaną procedurę $n-1$ razy i w efekcie
+  otrzymujemy węzeł $J$. Ponieważ $\epsilon'$ był z lematu \ref{LEM1}, więc $J$ i $K$ są równoważne.
+ \end{proof}
+ 
+ 
 \begin{twierdzenie}
- Niech $K$ będzie węzłem o uporządkowanym zbiorze wierzchołków $(p_1, p_2, \ldots, p_n)$. Dla każdego $\epsilon > 0$ istnieje węzeł $K'$ o zbiorze wierzchołków $(q_1, q_2, \ldots, q_n)$, 
-który jest odległy od węzła $K$ o nie więcej, niż $\epsilon$, oraz jego rzut na płaszczyznę $OXY$ jest regularny. 
+ Niech $K$ będzie węzłem o uporządkowanym zbiorze wierzchołków $(v_1, v_2, \ldots, v_n)$. Dla każdego $\epsilon > 0$ istnieje węzeł $K'$,
+który jest odległy od węzła $K$ o nie więcej, niż $\epsilon$, oraz jego rzut na płaszczyznę $OXY$ jest regularny.
 \end{twierdzenie}
-
+\begin{proof}
+ 
+Najpierw zastosujemy lemat \ref{LEM2} do węzła $K$ i powstały w ten sposób węzeł oznaczymy przez $K'$.
+ 
+Ponieważ rzut węzła $K'$ spełnia pierwszy warunek z definicji \ref{rzut_reg}, więc dla dwóch różnych odcinków $I,J$ węzła
+$K'$ zachodzi $|p(I)\cap p(J)| \le 1$.
+ 
+Niech $\mathcal{A}$ będzie rodziną wszystkich takich podzbiorów zbioru odcinków węzła $K'$, że dla każdego $A\in\mathcal{A}$ zachodzi
+\begin{enumerate}
+ \item $|A| > 1$,
+ \item istnieje taki $r\in\mathbb{R}^2$, że $\bigcap_{I\in A}p(I) = \lbrace r\rbrace$,
+ \item dla każdego $J\not\in A$ $\left(\bigcap_{I\in A}p(I)\right)\cap p(J) = \emptyset$.
+\end{enumerate}
+ 
+Niech $a\in K'$ będzie punktem z wnętrza pewnego odcinka $I_i$, takim że istnieją różne od $a$ punkty $b, c\in K'$ takie że $p(a) = p(b) = p(c)$ i $b\neq c$.
+Niech $\lbrace t_A\rbrace_{A\in\mathcal{A}}$ będzie ciągiem w $\mathbb{R}^2$, takim że $t_A = \bigcap_{I\in A}p(I)$. Niech $u\in\mathbb{R}^2$ będzie niezerowym wektorem prostopadłym do osi $OZ$, który
+nie jest równoległy do $p(I_{i-1})$ oraz nie jest równoległy do $p(I_{i+1})$. Wtedy, używając tego samego argumentu, co w dowodzie lematu \ref{LEM2}, możemy znaleźć dostatecznie małą $\delta > 0$, że dla każdej $0 < \delta' < \delta$ istnieje wektor $w$, taki że
+węzeł $(v_1, \ldots, v_{i-1}, v_i  + \delta'w, v_{i+1}  + \delta'w, v_{i+2}, \ldots, v_n)$ jest równoważny węzłowi $K'$, oraz rzut tego węzła spełnia punkt pierwszy
+defnicji \ref{rzut_reg}. Ponieważ ciąg $t_A$ jest skończony, to
+liczbę $\delta'$ można wziąć na tyle małą, żeby była mniejsza od dowolnej dodatniej odległości $d(p(I_j), t_A)$ dla $j \in \lbrace i-1, i+1\rbrace$.
+Wtedy węzeł powstały z $K'$ przez zastąpienie $v_i, v_{i+1}$ wierzchołkami $v_i'=v_{i} + \delta'w, v_{i+1}'=v_{i+1}+\delta'w$
+odpowiednio jest równoważny węzłowi $K'$, co więcej, dla każdego $r\in[v_{i-1}, v_i']\cup[v_i', v_{i+1}']\cup[v_{i+1}', v_{i+2}]$ istnieje co najwyżej jeden taki $r'\neq r$, że $p(r') = p(r)$.
+Zauważmy, że po tej zastosowaniu tej procedury przynajmniej jeden element rodziny $\mathcal{A}$ ma jeden element mniej.
+zatem w skończonej liczbie kroków dojdziemy do momentu, kiedy w rodzinie $\mathcal{A}$ zostaną jedynie zbiory dwuelementowe. Wtedy rzut otrzymanego węzła będzie regularny.
+ 
+\end{proof}
+ 
+ 
+Warto podkreślić, że dwa różne węzły (w sensie relacji równości) mogą mieć ten sam diagram, np. mając dany węzeł można przesunąć jego wierzchołek o największej trzeciej współrzędnej
+o wersor równoległy do osi $OZ$. Okazuje się jednak, że jeśli dwa węzły mają ten sam diagram, to są równoważne.
+ 
+ 
 \begin{twierdzenie}
- Jeśli węzeł $K$ ma regularny rzut na płaszczyznę $OXY$, to istnieje taka $\delta>0$, że dla każdego węzła $K'$ odległego od $K$ o mniej, niż $\delta$ węzły $K, K'$ są równoważne,
- oraz $K'$ również ma rzut regularny. 
+ Jeśli dwa węzły $K = (v_1,\ldots, v_n)$ oraz $W = (w_1, \ldots, w_n)$ mają regularne rzutowanie oraz ich diagramy są równe, to $K$ i $J$ są równoważne.
 \end{twierdzenie}
-
-\begin{twierdzenie}
- Jeśli dwa węzły $K$ oraz $J$ mają ten sam diagram, to są równoważne.
-\end{twierdzenie}
-
-Terminologia: łuki, skrzyżowania, overpass, underpass - chciałbym to sensownie przetłumaczyć, bo wygodnie by było mieć jednosłowne nazwy na te pojęcia.
-
-ćwiczenie: liczba skrzyżowań $=$ liczba łuków.
-
-\subsection{Orientacja węzła}
-ble, ble, ble... Węzeł to taki uporządkowany zbiór skończony. Jak go cyklicznie spermutujemy, albo odwrócimy kolejność jego elementów, to otrzymamy ten sam węzeł. O ile rąbnięcie
-naszego porządku cyklem wydaje się nie zaburzać porządku krawędzi naszego węzła, o tyle odwrócenie kolejności elementów, już tak...
-
+\begin{proof}
+ Ustalmy wierzchołek $v_i$. Zauważmy, że bez straty ogólności możemy założyć, że rzut każdego z odcinków $I_i, I_{i-1}$ węzła $K$ zawiera co najwyżej jedno skrzyżowanie.
+ Istotnie, jeśli
+ rzut odcinka $I_i$ zawiera więcej skrzyżowań (oczywiście jest ich skończenie wiele), to niech $s_0$ oznacza skrzyżowanie najbliższe $p(v_i)$, a $s_1$ skrzyżowanie najbliższe
+ punktowi $s_0$. Wybierzmy dowolny punkt z wnętrza odcinka $[s_0, s_1]$, oznaczmy go przez $s$. Niech $v' = p^{-1}(s)$. Wtedy łamana $(v_1, \ldots, v_i, v', v_{i+1})$ definiuje
+ węzeł $K$. Wówczas odcinek $p[ [v_i, v']]$ zawiera dokładnie jedno skrzyżowanie. To samo możemy założyć o węźle $J$ dodając nowy wierzchołek $q'$ w punkcie $p^{-1}(s)$.
+ 
+ Niech $I, J$ oznaczają te odcinki węzła $K$, że $p[I]\cap p[I_i]\neq\emptyset$ oraz $p[J]\cap p[I_{i-1}]\neq\emptyset$. Wtedy $I$ leży ,,pod'' odcinkiem $I_i$ i pod odcinkiem
+ węzła $W$, który jest rzutowany na $p[I_i]$, albo ,,nad'' oboma tymi odcinkami. To samo się tyczy odcinka $J$. Stąd wynika, że wnętrza odcinków $[v_{i-1}, w_i], [w_i, v_{i+1}]$ są
+ rozłączne z węzłem $K$. To, że $K\cap [v_i,w_i] = \lbrace v_i\rbrace$ jest oczywiste. Dlatego ciąg
+ \begin{displaymath}
+  K_0 = (v_1, \ldots, v_n), K_1 = (v_1, \ldots, v_{i-1}, w_i, v_i, v_{i+1}, \ldots, v_n), K_3 = (v_1, \ldots, v_{i-1}, w_i, v_{i+1}, \ldots, v_n)
+ \end{displaymath}
+jest ciągiem przekształceń elementarnych. Stosując powyżej opisaną procedurę do każdego wierzchołka węzła $K$ otrzymamy na końcu węzeł $J$, co znaczy, że te węzły są równoważne.
+ 
+ \end{proof}
+ 
+\subsection{Każdy kij ma dwa końce, czyli orientacja węzła}
+Jak już wcześniej zostało powiedziane, węzeł to łamana w $\mathbb{R}^3$. Łamana z kolei jest wyznaczona jednoznacznie przez zbiór  swoich wierzchołków. Mając dany węzeł o wierzchołkach
+$(v_1, v_2, \ldots, v_n)$, możemy go zorientować, to znaczy dla każdego odcinka węzła wybrać początek i koniec tego odcinka. Chcielibyśmy to zrobić w taki sposób, żeby każdy wierzchołek
+był końcem dokładnie jednego odcinka. W tym sensie węzeł $(v_1, v_2, \ldots, v_n)$ jest węzłem różnym od węzła $(v_n, \ldots, v_2, v_1)$, mimo, że jako podzbiory $\mathbb{R}^3$ są
+sobie równe. Teraz spróbujemy sformalizować to, co dotychczas powiedzieliśmy.
+ 
 \begin{definicja}
- Węzłem zorientowanym nazywamy...
+ Odcinkiem zorientowanym w $\mathbb{R}^3$ o początku w $p$ i końcu w $q$ (zakładamy, że $p\neq q$) nazywamy liniowe włożenie $l\colon[0,1]\to\mathbb{R}^3$, takie że $l(0) = p, l(1) = q$ i oznaczamy przez
+ $[p,q]_o$.
 \end{definicja}
-
-Na zbiorze węzłów zorientowanych można położyć relację równoważności podobną do tej, którą zdefiniowaliśmy wcześniej. Musimy jeszcze żądać, żeby ciąg elementarnych operacji nie 
-zmieniał oriantacji naszego wyjściowego węzła...
-
+ 
+Innymi słowy odcinek zorientowany to odcinek z wyróżnionym początkiem i końcem. Co więcej, przy oznaczeniach z definicji zachodzi
+\begin{displaymath}
+ q-p =  |q-p|\cdot\frac{l'(x)}{|l'(x)|}, \hbox{ dla dowolnego } 0 < x < 1.
+\end{displaymath}
+ 
 \begin{definicja}
- Zorientowane węzły nazywamy równoważnymi, gdy...
+ Orientacją węzła $K = (v_1, v_2, \ldots, v_n)$ nazywamy takie zorientowanie jego odcinków, że każdy wierzchołek jest końcem (równoważnie - początkiem) dokładnie jednego odcinka.
 \end{definicja}
-
-Gdyby równoważność w szerszym sensie implikowała równoważność węzłów zorientowanych, powyższa definicja byłaby nudna. Tak na szczęście nie jest, istnieje przykład dwóch węzłów
-równoważnych, ale nie równoważnych w sensie orientacji.
-
+ 
+Nie trudno się przekonać, że każdy węzeł można zorientować na dokładnie dwa sposoby. Istotnie, wybranie orientacji jednego odcinka węzła jednoznacznie wyznacza orientacje całego
+węzła.
+ 
+Przyjmiemy następującą konwencję, jeśli powiemy, że węzeł $K = (v_1, v_2, \ldots, v_n)$ jest węzłem zorientowanym, będziemy przez to rozumieć, że $I_1 = [v_1, v_2]_o$.
+ 
+\textbf{Uwaga} Niech będzie dany węzeł $K = (v_1, v_2, \ldots, v_n)$, niech ponadto uporządkowane $n$-tki $K_i = (v_{i_1}, v_{i_2}, \ldots, v_{i_n})$
+oraz $K_j = (v_{j_1}, v_{j_2}, \ldots, v_{j_n})$ definiują ten sam węzeł $K$. Niech $O_i, O_j$ oznaczają orientację zorientowanych węzłów $K_i, K_j$ odpowiednio. Powiemy, że orientacja
+$O_i$ jest równoważna orientacji $O_j$, gdy isnieje taka $\sigma\in S_n$, że dla każdego $k$ zachodzi $\sigma(i_k) = j_k$. Sprawdzenie, że ta relacja jest w istocie relacją równoważności
+pozostawiamy jako proste ćwiczenie.
+ 
 \begin{definicja}
- Węzłem odwrotnie zorientowanym nazywamy węzeł zorientowany $(p_n, p_{n-1}, \ldots, p_1)$ powstały z węzła... i oznaczamy $K^r$.
+ Węzłem zorientowanym nazywamy węzeł z wybraną orientacją.
 \end{definicja}
-
-\subsection{Ruchy Reidemeister'a}
-W tym podrozdziale przedstawimy pierwsze poważne narzędzie, które w wielu przypadkach pozwoli nam rozstrzygnąć, czy dwa węzły są równoważne, czy też nie. 
+ 
+Przekształcenia elementarne węzła zorientowanego definiuje się w sposób oczywisty. Do zestawu punktów $(1), (2)$ z definicji \ref{elementarne_p} należy dodać następujący warunek.
+\begin{displaymath}
+ \hbox{Odcinki zorientowane koincydentne z wierzchołkiem } p_0 \hbox{ są równe }[p_n, p_0]_o, [p_0, p_1]_o.
+\end{displaymath}
+ 
+\begin{definicja}
+ Węzły zorientowane nazywamy równoważnie zorientowanymi, gdy w skończenie wielu krokach za pomocą przekształceń elementarnych jednego węzła zorientowanego
+ możemy otrzymać drugi.
+\end{definicja}
+Należy wyraźnie powiedzieć, że równoważność dwóch węzłów jest istotnie inną relacją, niż równoważność węzłów w sensie orientacji. Istnieją bowiem przykłady węzłów równoważnych
+ale nie równoważnych w sensie orientacji. Opisanie ich dokładnie wykracza jednak poza możliwości intelektualne autora, dlatego fakt ten, z wyższej konieczności, jest podany
+czysto informacyjnie.
+Na koniec tego rozdziału podamy jeszcze jedną definicję.
+\begin{definicja}
+ Odwrotnością węzła zorientowanego $K = (v_1, v_2, \ldots, v_n)$ nazywamy węzeł $K^r = (v_n, v_{n-1}, \ldots, v_1)$. Powiemy, że $K$ jest węzłem odwracalnym, jeżeli $K$ i $K^r$ są
+ równoważne w sensie orientacji. Dla węzła $J$ niezorientowanego, powiemy że jest on odwracalny, jeśli istnieje taka orientacja węzła $J$, że jest on odwracalny (jako węzeł
+ zorientowany z tą wybraną orientacją).
+\end{definicja}
+ 
+ 
+\subsection{Ruchy Reidemeistera}
+W tym podrozdziale przedstawimy pierwsze poważne narzędzie, które w wielu przypadkach pozwoli nam rozstrzygnąć, czy dwa węzły są równoważne, czy też nie.
 Metody komblinatoryczne, ble, ble, ble...
-
+ 
 Wcześniej pokazaliśmy, że problem równoważności węzłów można próbować rozstrzygać posługując się diagramami tych węzłów. Sformułujemy i udowodnimy twierdzenie wiążące...
-
+ 
 \begin{definicja}
  Dwa diagramy uważa się za równoważne, gdy wykonując skończoną liczbę przekształceń zwanych ruchami Reidemeister'a, można
  z jednego diagramu otrzymać drugi
 \end{definicja}
-
-
+ 
+ 
 \begin{definicja}
- Ruchy Reidemeister'a - rysunki.
+ Ruchy Reidemeistera - rysunki.
 \end{definicja}
-
+ 
 Trzy ruchy wraz z ich odwrotnościami.
-
+ 
 \begin{twierdzenie}{(Reidemeister'a)}
 Dwa węzły są równoważne, wtedy i tylko wtedy, gdy ich diagramy są równoważne.
 \end{twierdzenie}
-
+ 
 Trochę pozachwycam się tym twierdzeniem i prostotą dowodu, uzasadnię, czemu przyjąłem taką definicję i wystarczy...
