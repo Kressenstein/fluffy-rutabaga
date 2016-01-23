@@ -1,25 +1,27 @@
 % Szymon
 \section{Kolorowania węzłów}
-W niniejszej części zostanie przedstawione zagadnienie kolorowania węzłów. Podana zostanie definicja kolorowania, oraz warunki które muszą zostać spełnione aby węzeł mógł zostać w określony sposób pokolorowany. Następnie zdefiniowane zostaną równania kolorowań oraz macierze kolorowań. Ostatnim etapem będzie wprowadzenie macierzy kolorowań jako niezmiennika węzłów. 
+
+ Głównym zadaniem teorii węzłów jest stworzenie narzędzi służących do opisywania, klasyfikowania oraz rozróżniania węzłów. Na podstawie twierdzenia przedstawionego w poprzedniej części wiemy że, diagramy są równoważne jeżeli pierwszy można przekształcić do drugiego stosując ruchy Reidemeistera. Sprawdzanie równoważności diagramów w ten sposób jest jednak uciążliwe, oraz czasochłonne.  W niniejszej części zostanie przedstawione zagadnienie kolorowania diagramów węzłów. Kolorowanie węzłów jest niezmiennikiem diagramu. Oznacza to że gdy pierwszy diagram posiada pewną własność kolorowania, a drugi nie, to diagramy te nie są równoważne, a więc przedstawiają różne węzły. Kolorowanie nie jest idealnym narzędziem klasyfikującym i istnieją diagramy nierównoważne o takich samych własnościach kolorowania. \\
+ Kolejność omawianych zagadnień w tym rozdziale będzie następująca: Najpierw podana zostanie definicja kolorowania, oraz warunki które muszą zostać spełnione aby węzeł mógł zostać w określony sposób pokolorowany. Następnie zdefiniowane zostaną równania kolorowań oraz macierze kolorowań. Kolejnym etapem będzie wprowadzenie macierzy kolorowań jako niezmiennika węzłów. Ostatnią część stanowić będzie wskazanie relacji pomiędzy klasami diagramów węzłów a grupami kolorowań.
 
 \subsection{Kolorowanie diagramów}
 
-Niech K będzie węzłem zorientowanym, L jego diagramem, B zbiorem łuków,  C = $\lbrace c_{1}, \ldots, c_{k}\rbrace$ zbiorem skrzyżowań. 
+Niech K będzie węzłem zorientowanym, L jego diagramem, B = $\lbrace b_{1}, \ldots, b_{k}\rbrace$ zbiorem łuków,  C = $\lbrace c_{1}, \ldots, c_{k}\rbrace$ zbiorem skrzyżowań. 
 
 \begin{definicja}
-Diagram L jest kolorowalny modulo $n \in \N$, gdy każdemu łukowi diagramu L można przyporządkować liczbę $a_{i} \in \lbrace 0, \ldots, n-1 \rbrace$ taką że: \\ \\
+Diagram L jest kolorowalny modulo $n \in \N$, gdy każdemu łukowi diagramu L można przyporządkować liczbę $a \in \lbrace 0, \ldots, n-1 \rbrace$ w taki sposób, że: \\ \\
 	\begin{minipage}{0.7\textwidth}
 	
 	\begin{enumerate}
-		\item Dla każdego skrzyżowania $c_{j}$ spełnione jest równanie kolorowania \\ $a_{m2}+a_{m3}-2a_{m1} \equiv 0$ mod n
-		\item Kolorowanie nie jest stale, tzn istnieją łuki $a_{m1}, a_{mj}$ którym 			przyporządkowano różne liczby.
+		\item Dla każdego skrzyżowania $c_{j}$ spełnione jest równanie kolorowania \\ $a_{2}+a_{3}-2a_{1} \equiv 0$ mod n
+		\item Kolorowanie nie jest stale, tzn istnieją łuki $b_{i}, b_{j}$ którym 			przyporządkowano różne liczby.
 		 
 	\end{enumerate}
 	\end{minipage}
 	\begin{minipage}{0.3\textwidth}
 	\begin{center}
 
-	\includegraphics[scale=0.2]{2/Obrazy/Crossing1}
+	\includegraphics[scale=0.35]{2/Obrazy/Crossing1}
 	\end{center}
 	\end{minipage}
 \end{definicja}
@@ -36,52 +38,58 @@ Dwa diagramy $L_{1}, L_{2}$ są równoważne jeżeli istnieje ciąg ruchów Reid
 \begin{enumerate} \item Pierwszy ruch Reidemeistera: 
 
 	\begin{minipage}{0.5\textwidth}
-	Dla skrzyżowania $c_{j}$ spełnione jest równanie \\ $a_{m1}+a_{m2}-2a_{m2} \equiv 0$ mod n. Zatem $a_{m1} \equiv a_{m2}$.
+	Dla skrzyżowania $c_{j}$ spełnione jest równanie \\ $a_{1}+a_{2}-2a_{2} \equiv 0$ mod n. Zatem $a_{1} \equiv a_{2}$.
 	\end{minipage}
 	\begin{minipage}{0.5\textwidth}
 		\begin{center}
-			\includegraphics[scale=0.3]{2/Obrazy/R1}
+			\includegraphics[scale=0.2]{2/Obrazy/R1}
 		\end{center}
 	\end{minipage}
 \item Drugi ruch Reidemeistera: 
 
 	\begin{minipage}{0.5\textwidth}
-	Dla skrzyżowania $c_{j1}$ mamy $a_{m1}+a_{m4}-2a_{m2} \equiv 0$ mod n. Dla skrzyżowania $c_{j2}$, $a_{m3}+a_{m4}-2a_{m2} \equiv 0$ mod n. Stąd $a_{m1} \equiv a_{m3} $ mod n.
+	Dla skrzyżowania $c_{j1}$ mamy \\ $a_{1}+a_{4}-2a_{2} \equiv 0$ mod n.\\ Dla skrzyżowania $c_{j2}$, \\$a_{3}+a_{4}-2a_{2} \equiv 0$ mod n. \\Stąd $a_{1} \equiv a_{3} $ mod n.
 	\end{minipage}
 	\begin{minipage}{0.5\textwidth}
 		\begin{center}
-			\includegraphics[scale=0.3]{2/Obrazy/R2}
+			\includegraphics[scale=0.2]{2/Obrazy/R2}
 		\end{center}
 	\end{minipage}
 	
 \item Trzeci ruch Reidemeistera: 
 
 
-	Dla skrzyżowania $c_{j2}$ mamy $a_{m5}+a_{m2}-2a_{m3} \equiv 0$ mod n. Analogicznie dla skrzyżowania $c_{j5}$, $a_{m8}+a_{m2}-2a_{m3} \equiv 0$ mod n. Stąd $a_{m8} \equiv a_{m5}$ mod n. \\
+	Dla skrzyżowania $c_{j2}$ mamy $a_{5}+a_{2}-2a_{3} \equiv 0$ mod n. Analogicznie dla skrzyżowania $c_{j5}$, $a_{8}+a_{2}-2a_{3} \equiv 0$ mod n. Stąd $a_{8} \equiv a_{5}$ mod n. \\ \\
 	\begin{minipage}{0.35\textwidth}
 	W drugim przypadku mamy:\\
-	$a_{m4} \equiv 2a_{m2}-a_{m1}$. \\
-	$a_{m6} \equiv 2a_{m3}-a_{m4} \equiv$ \\$\equiv 2a_{m3}-2a_{m2}+a_{m1} $.	\\
-	$a_{m8} \equiv 2a_{m3}-a_{m2}$. \\	
-	$a_{m7} \equiv 2a_{m3}-a_{m1}$.\\		
-	$a_{m9} \equiv 2a_{m8}-a_{m7} \equiv$ \\$\equiv 2a_{m3}-2a_{m2}+a_{m1} \equiv a_{m6} $. \\
+	$a_{4} \equiv 2a_{2}-a_{1}$. \\
+	$a_{6} \equiv 2a_{3}-a_{4} \equiv$ \\$\equiv 2a_{3}-2a_{2}+a_{1} $.	\\
+	$a_{8} \equiv 2a_{3}-a_{2}$. \\	
+	$a_{7} \equiv 2a_{3}-a_{1}$.\\		
+	$a_{9} \equiv 2a_{8}-a_{7} \equiv$ \\$\equiv 2a_{3}-2a_{2}+a_{1} \equiv a_{6} $. \\
 	\end{minipage}
 	\begin{minipage}{0.65\textwidth}
 		\begin{center}
-			\includegraphics[scale=0.2]{2/Obrazy/R3}
+			\includegraphics[scale=0.25]{2/Obrazy/R3}
 		\end{center}
 	\end{minipage}
-	
+	Zatem, kolory łuków o indeksach różnych od 7 nie ulegają zmianie. Kolor łuku $a_{7}$ zmienia się i wynosi $a_{7} \equiv a_{6} - a_{2} + a_{4}$. W otrzymane kolorowanie spełnia równania kolorowań w diagramie $L_{2}$.
 \end{enumerate}
 \end{proof}
 
+
+\begin{definicja}
+Niech B = $\lbrace b_{1}, \ldots, b_{k}\rbrace$ będzie zbiorem łuków. Kolorowaniem $(a_{b_{1}}, \ldots, a_{b_{k}})$ nazywamy przyporządkowanie każdemu łukowi $b_{i}$ koloru $a_{b{i}}$, tak aby spełnione były równania kolorowań. W dalszej części opracowania zapis ten zostanie uproszczony do postaci $(a_{1}, \ldots, a_{k})$, gdzie indeks przy $a$, odpowiada numerowi łuku, którego ten kolor dotyczy.
+\end{definicja}
+
+
 \begin{lemat}
-Jeżeli dla diagramu L istnieje kolorowanie $\lbrace a_{1}, \ldots , a_{k} \rbrace$, to dla każdego l $\in \N\:\: \lbrace a_{1}+l, \ldots , a_{k}+l \rbrace$ też jest kolorowaniem.
+Jeżeli dla diagramu L istnieje kolorowanie $( a_{1}, \ldots , a_{k} )$, to dla każdego l $\in \N\:\: ( a_{1}+l, \ldots , a_{k}+l )$ też jest kolorowaniem.
 \end{lemat}
 \begin{proof}
 Dla każdego $c_{j}$ spełnione jest:\\
-$a_{m11}+a_{m2}-2a_{m3} \equiv 0$ mod n. Wobec czego \\ 
-$a_{m1}+l+a_{m2}+l-2a_{m3}-2l \equiv 0$.
+$a_{m_{1}}+a_{m_{2}}-2a_{m_{3}} \equiv 0$ mod n. Wobec czego \\ 
+$a_{m_{1}}+l+a_{m_{2}}+l-2a_{m_{3}}-2l \equiv 0$.
 \end{proof}
 \textbf{Wniosek:} Jeśli diagram jest kolorowalny to istnieje kolorowanie takie że $a_{1} = 0$.
 
@@ -89,15 +97,15 @@ $a_{m1}+l+a_{m2}+l-2a_{m3}-2l \equiv 0$.
 	\begin{center}
 			\includegraphics[scale=0.3]{2/Obrazy/Mod2}
 	\end{center}
-	W każdym przypadku kolory łuków leżących po przeciwnych stronach skrzyżowania są jednakowe. Startując w dowolnym punkcie węzłą i przechodząc go w wybranym kierunku otrzymamy że każdy łuk należący do tej samej komponenty spójności co punkt startowy ma przyporządkowany jednakowy kolor. Zatem węzeł może być kolorowany mod 2 $\Leftrightarrow$ węzeł ma więcej niż jedną komponentę spójności.
+	W każdym przypadku kolory łuków leżących po przeciwnych stronach skrzyżowania są jednakowe. Startując w dowolnym punkcie węzłą i przechodząc go w wybranym kierunku otrzymamy że każdy łuk należący do tej samej komponenty spójności co punkt startowy ma przyporządkowany jednakowy kolor. Zatem splot może być kolorowany mod 2 $\Leftrightarrow$ splot składa się z co najmniej 2 węzłów.
 	
 	\begin{definicja}
-	Węzeł K jest podzielny jeśli ma conajmniej 2 komponenty spójności, oraz  $\exists U, V\:  otwarte, U \cap V = \emptyset$, takie że $ K\subseteq U\cup V, K\cap U \neq \emptyset, K\cap V \neq \emptyset$.
+	Niech K będzie splotem, L jego diagramem. Diagram L jest podzielny jeśli splot składa się z co najmniej 2 węzłów, oraz  $\exists U, V\:  otwarte, U \cap V = \emptyset$, takie że $ L\subseteq U\cup V, L\cap U \neq \emptyset, L\cap V \neq \emptyset$.
 	\end{definicja}
 	
 	
 \begin{lemat}
-	Jeżeli węzeł K jest podzielny to, $\forall n >1 \:\:$ diagram L jest kolorowalny mod n.
+	Jeżeli splot K jest podzielny to, $\forall n >1 \:\:$ diagram L jest kolorowalny mod n.
 \end{lemat}
 	
 \begin{proof}
@@ -110,6 +118,12 @@ Niech każdy łuk zawarty w U będzie pokolorowany na kolor 0, łuk zawarty w V 
 \begin{definicja}
 Krótki łuk, to część łuku który przechodzi dokładnie przez 2 skrzyżowania. 
 \end{definicja}
+Przykład: Łuk $b_{1}$ przechodzi przez 5 skrzyżowań i składa się z 4 krótkich łuków. \\
+
+\begin{center}
+			\includegraphics[scale=0.2]{2/Obrazy/ShortArc} \\
+\end{center}
+
 \begin{definicja}
 Region to komponenta spójności $\R^{2} \setminus L$.
 \end{definicja}
@@ -117,7 +131,7 @@ Region to komponenta spójności $\R^{2} \setminus L$.
 Szachownica diagramu to przyporządkowanie każdemu regionowi jednego z 2 kolorów tak aby każdy krótki łuk oddzielał regiony o różnych kolorach.
 \end{definicja}
 
-\textbf{Przykład:} Węzeł $7_{3}$ posiada 7 łuków, 14 krótkich łuków, 9 regionów.
+\textbf{Przykład:} Rozważmy węzeł który w literaturze jest oznaczony symbolem $7_{3}$. Diagram węzła jest przedstawiony na rysunku poniżej (pierwszy z lewej). Węzeł posiada 7 łuków, 14 krótkich łuków, oraz 9 regionów.
 
 			\includegraphics[scale=0.3]{2/Obrazy/ArcRegion3} \\
 
@@ -127,20 +141,31 @@ Dla każdego skrzyżowania $c_{j}$ równanie można przedstawić na 2 sposoby.
 Dla każdego węzła K istnieje szachownica jego diagramu.  
 \end{lemat}
 \begin{proof}
-Niech $K$ będzie zawarty w pewnym zbiorze otwartym $U$. Załóżmy nie wprost, że istnieje diagram dla którego nie istnieje szachownica spełniająca wymagane warunki. Zatem istnieje krzywa M o następujących własnościach:
+Ustalmy węzeł K, oraz jego diagram L. Niech $L$ będzie zawarty w pewnej kuli otwartej $\Omega$.
+Weźmy dowolny region diagramu L. Ustalmy punkt P należący do tego regionu. Weźmy dowolne dwie krzywe o następujących własnościach:
 
+
+
+
+	\begin{minipage}{0.5\textwidth}
 \begin{itemize}
-\item Początek i koniec M znajduje się na brzegu $U$,
-\item Krzywa przechodzi przez parzystą ilość regionów,
-\item Krzywa nie przechodzi przez skrzyżowania.
+\item Krzywe są bez samo przecięć i nie przecinają się wzajemnie,
+\item Początki krzywych znajdują się w punkcie P,
+\item Końce krzywych znajdują się na brzegu $\Omega$,
+\item Krzywa nie przechodzi przez skrzyżowania.	
 \end{itemize}
-
-Stąd wynika że krzywą M, przecina nieparzysta liczba łuków, co jest sprzeczne z definicją węzła jako krzywej zamkniętej.
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\includegraphics[scale=0.3]{2/Obrazy/Chesscircle}
+		\end{center}
+	\end{minipage}
+Zatem suma krzywych dzieli węzeł na 2 części. Ponadto obie krzywe przecinają parzystą liczbę łuków. Zatem każda z krzywych przecina taką samą liczbę łuków modulo 2. Stąd kolor regionu nie zależy od wyboru krzywej, więc szachownica diagramu istnieje zawsze. 
 
 \end{proof}
 
 \begin{definicja}
-Wybór znaku równania nazywa się dobrym, gdy zachodzi następujący warunek. 
+Wybór znaku równania kolorowania nazywa się dobrym, gdy przyjmuje następującą postać: 
 \end{definicja}
 
 	\begin{minipage}{0.5\textwidth}
@@ -160,15 +185,19 @@ $2a_{m1}-a_{m2}-a_{m3} \equiv 0$ mod n, dla \\
 Suma równań po wszystkich skrzyżowaniach równa się 0, o ile znaki równań zostały \emph{wybrane dobrze}.
 \end{lemat}
 \begin{proof}
-Ustalmy dowolny krótki łuk $a_{j}$. $a_{j}$ pojawia się dokładnie w 2 równaniach skrzyżowań. Łuk łączy 2 skrzyżowania $c_{j1}$ oraz $c_{j2}$. Istnieje region $X_{1}$, taki że oba skrzyżowania graniczą z $X_{1}$. Bez straty ogólności $X_{1}$ jest białe. 
+Ustalmy dowolny łuk $b_{j}$. Łuk $b_{j}$ składa się z pewnej liczby krótkich łuków $b_{j}^{i}$. Każdy krótki łuk łączy dokładnie 2 skrzyżowania. Istnieje region $X_{1}$, taki że oba skrzyżowania graniczą z $X_{1}$. Bez straty ogólności $X_{1}$ jest białe. Niech $a_{j}^{i}$ oznacza kolor $b_{j}^{i}$ krótkiego łuku. Kolor każdego krótkiego łuku występuje w równaniach dokładnie 2 skrzyżowań.
 \begin{center}
-  			\includegraphics[scale=0.3]{2/Obrazy/0sum}
+  			\includegraphics[scale=0.3]{2/Obrazy/zerosum2}
 \end{center}
-Ponieważ znaki równań zostały  \emph{wybrane dobrze}, znak $a_{j}$ w równaniu skrzyżowania  
-$c_{j1}$, jest przeciwny do znaku $a_{j}$ w równaniu skrzyżowania $c_{j1}$. Wobec czego równania sumują się do 0.
+Ponieważ znaki równań zostały  \emph{wybrane dobrze}, znak $a_{j}^{i}$ w równaniu skrzyżowania  
+$c_{j1}$, jest przeciwny do znaku $a_{j}^{i}$ w równaniu skrzyżowania $c_{j2}$. Wobec czego równania dla krótkich łuków sumują się do 0, dla każdego i. Zatem sumują się również do 0 dla równań kolorowań łuków zwyczajnych.
 \end{proof}
 
 \textbf{Wniosek:} Niech łuk j, ma początek w skrzyżowaniu $c_{m}$. Zaczynając w $c_{m}$ a następnie idąc wzdłuż łuku i sumując współczynniki przy j-tym łuku w mijanych równaniach skrzyżowań, suma zawsze wynosi $\pm 1$.
+\begin{proof}
+Zamiast sumować współczynniki przy j-tym łuku w kolejnych równaniach skrzyżowań można sumować współczynniki przy odpowiadających mu krótkich łukach. Z lematu współczynniki sumują się do 0. Zatem suma wszystkich współczynników jest równa współczynnikowi krótkiego łuku przy ostatnim mijanym skrzyżowaniu, a ten współczynnik wynosi $\pm 1$.
+
+\end{proof}
 
 \begin{comment}
 \begin{lemat}
@@ -182,7 +211,7 @@ Dla każdego  każdego łuku j można tak wybrać znaki dla każdego skrzyżowan
 
 \subsection{Macierze kolorowań}
 \begin{definicja}
-Łuk zamknięty w diagramie to komponenta spójności zawierająca dokładnie jeden łuk.
+Łuk zamknięty w diagramie to węzeł składający się dokładnie z jednego łuku.
 \end{definicja}
 \begin{center}
 \includegraphics[scale=0.2]{2/Obrazy/Clossedcurve} \\
@@ -197,7 +226,7 @@ Niech L będzie diagramem zorientowanym. Ponieważ węzeł nie zawiera łuków z
 \end{proof}
 
 
-Niech L będzie diagramem bez łuków zamkniętych, B zbiorem łuków, $\lbrace a_{1}, \ldots, a_{k}\rbrace$ jego kolorowaniem modulo n, C zbiorem skrzyżowań.  
+Niech L będzie diagramem bez łuków zamkniętych, B zbiorem łuków, $( a_{1}, \ldots, a_{k})$ jego kolorowaniem modulo n, C zbiorem skrzyżowań.  
 \begin{definicja}
 Macierz kolorowania $A_{+}$ to macierz powstała ze współczynników występujących w równaniach kolorowań diagramu L. $A_{+}=(a_{ij})$, gdzie  $a_{ij}$ odpowiada współczynnikowi przy kolorze i-tego łuku w równaniu $c_{j}$-tego skrzyżowania. 
 \end{definicja}
@@ -311,7 +340,7 @@ $k \times det \begin{pmatrix}
 \end{pmatrix}$ \\
 \end{center}
 
-Korzystając z rozwinięcia Lalpace'a względem j-tej kolumny $det \big(A+X \big) = k^2 \times det \big( A_{i,j} \big)$, dla każdego $i, j$. Zatem $det \big( A_{i,j} \big)$ nie zależy do wyboru $i, j$. 
+Korzystając z rozwinięcia Lalpace'a względem j-tej kolumny $\vert det  \big(A+X \big) \vert = k^2 \times \vert det \big( A_{i,j} \big) \vert$, dla każdego $i, j$. Zatem $det \big( A_{i,j} \big)$ nie zależy do wyboru $i, j$. 
 
 \end{enumerate}
 
@@ -324,7 +353,7 @@ Korzystając z rozwinięcia Lalpace'a względem j-tej kolumny $det \big(A+X \big
 Wyznacznik diagramu jest powiązany z możliwymi kolorowaniami diagramu.
 
 \begin{lemat}
-Niech A będzie macierzą o wyrazach całkowitych. Istnieją macierze X, Y o wyrazach całkowitych, takie że $det(X)=det(Y)=1$, oraz macierz diagonalna $D=(d_{i,i})$, jedyna z dokładnością do permutacji wyrazów na głównej przekątnej, takie że $D=XAY$.
+Niech A będzie macierzą o wyrazach całkowitych. Istnieją macierze X, Y o wyrazach całkowitych, takie że $\vert det(X) \vert= \vert det(Y) \vert=1$, oraz macierz diagonalna $\vert D \vert=(\vert d_{i,i} \vert)$, jedyna z dokładnością do permutacji wyrazów na głównej przekątnej, takie że $D=XAY$.
 \end{lemat}
 \begin{proof}
 Niech A będzie macierzą wymiaru $k \times k$, oraz  $a$ liczbą całkowitą. Ustalmy macierze:
@@ -339,7 +368,7 @@ ją przekształcić do postaci $A^(1)$, takiej że najmniejszy co do modułu, ni
 $Z^2_{i,a1}$, można przekształcić macierz do postaci $A^(2)$ takiej że, wartość bezwzględna każdego elementu leżącego w pierwszym wierszu lub pierwszej kolumnie jest mniejsza od wartości bezwzględnej elementu $a_{1,1}$. \\
 $\textbf{Krok 2:}$ Powtarzając Krok 1, można sprowadzić macierz do postaci 
 \begin{center}
-$A^(n_{1})=\begin{pmatrix}
+$A^{(n_{1})}=\begin{pmatrix}
 a_{1,1} & 0 & \cdots & 0 \\
 0 & a_{2,2} & \cdots & a_{2,k} \\
 \vdots & \ddots & \ddots & \vdots \\
@@ -348,7 +377,7 @@ a_{1,1} & 0 & \cdots & 0 \\
 \end{center}
 $\textbf{Krok 3:}$ Powtarzając krok 1 i 2 dla macierzy wymiaru $(k-1) \times (k-1)$ otrzyma się macierz 
 \begin{center}
-$A^(n_{2})=\begin{pmatrix}
+$A^{(n_{2})}=\begin{pmatrix}
 a_{1,1} & 0 & 0 & \cdots & 0 \\
 0 & a_{2,2} & 0 & \cdots & 0 \\
 0 & 0 & a_{3,3} & \cdots & a_{3,k} \\
@@ -447,7 +476,7 @@ Dodając do k-tego wiersza sumę pozostałych wierszy otrzymamy macierz:
 \end{center}
 \end{minipage}
 
-Stąd korzystając z rozwinięcia Laplace'a względem ostatniego wiersza, $\vert det \big(A'\big) \vert = \vert 1 \times det \big(A\big) \vert$. Przenosząc element $a_{k,k} =1$ w lewy górny róg macierzy i powtarzając rozumowanie z twierdzenia o postaci macierzy diagonalnej, otrzymujemy, że jeśli macierz diagonalna odpowiadająca $A$ ma wartości na głównej przekątnej $\lbrace d_{1}, \cdots, d_{k-1} \rbrace$, to macierz diagonalna odpowiadająca $A'$, ma wartości $\lbrace 1, d_{1}, \cdots, d_{k-1} \rbrace$
+Stąd korzystając z rozwinięcia Laplace'a względem ostatniego wiersza, $\vert det \big(A'\big) \vert = \vert 1 \times det \big(A\big) \vert$. Przenosząc element $a_{k,k} =1$ w lewy górny róg macierzy i powtarzając rozumowanie z twierdzenia o postaci macierzy diagonalnej, otrzymujemy, że jeśli macierz diagonalna odpowiadająca $A$ ma wartości na głównej przekątnej $\lbrace \vert d_{1} \vert, \cdots, \vert d_{k-1} \vert \rbrace$, to macierz diagonalna odpowiadająca $A'$, ma wartości $\lbrace 1, \vert d_{1} \vert, \cdots, \vert d_{k-1} \vert \rbrace$
 
 \item Drugi ruch Reidemeistera. Bez straty ogólności można założyć że ruch Reidemeistera dotyczy i-tego, oraz k-tego łuku, gdzie i-ty łuk jest łukiem górnym, oraz ruch jest pomiędzy pomiędzy skrzyżowaniami $ c_{j}, c_{j+1}$. 
 
@@ -488,7 +517,7 @@ Niech indeksy skrzyżowań do których dochodzi łuk k są mniejsze od i+1, oraz
 		
 \end{center}
 
-Po wykonaniu na macierzy $A'$ następujących operacji: Dodanie do ostatniej(k+1) kolumny sumy pozostałych kolumn, oraz dodania do przedostatniego wiersza (k) sumy wierszy od 1 do k-1, oraz zastosowaniu rozwinięcia Laplace'a otrzymamy: $\vert det \big( A' \big) \vert = \vert det \big( A \big) \vert$. Macierz diagonalna ma postać $\lbrace 1, 1, d_{1}, \cdots, d_{k} \rbrace$. Argumentacja jest analogiczna jak w pierwszym ruchu Reidemeistera.
+Po wykonaniu na macierzy $A'$ następujących operacji: Dodanie do ostatniej(k+1) kolumny sumy pozostałych kolumn, oraz dodania do przedostatniego wiersza (k) sumy wierszy od 1 do k-1, oraz zastosowaniu rozwinięcia Laplace'a otrzymamy: $\vert det \big( A' \big) \vert = \vert det \big( A \big) \vert$. Macierz diagonalna ma postać $\lbrace 1, 1, \vert d_{1} \vert, \cdots, \vert d_{k} \vert \rbrace$. Argumentacja jest analogiczna jak w pierwszym ruchu Reidemeistera.
  
  \item Trzeci ruch Reidemeistera. Trzeci ruch nie zmienia liczby skrzyżowań. Macierze $A_{+}$, oraz $A'_{+}$ mają wymiar $k \times k$. Bez straty ogólności można przyjąć 
 
@@ -521,7 +550,7 @@ Niech $K$, $\tilde{K}$ będą węzłami, $L$, $\tilde{L}$ ich diagramami, $A_{+}
 \end{itemize} 
 
 \begin{twierdzenie}
-Wyznacznik sumy spójnej diagramów $\vert det \big( K\#\tilde{K} \big) \vert = \vert det \big( K \big) \vert \times \vert det \big( \tilde{K} \big) \vert$. Ponadto jeżeli wartości w odpowiadających macierzach diagonalnych wynoszą $\lbrace d_{1}, \cdots, d_{k} \rbrace$, oraz $\lbrace \tilde {d_{1}}, \cdots, \tilde{d_{k}} \rbrace$, to wartości w macierzy diagonalnej dla diagramu sumy spójnej wynoszą $\lbrace 1, d_{1}, \cdots, d_{k}, \tilde {d_{1}}, \cdots, \tilde{d_{k}} \rbrace$.
+Wyznacznik sumy spójnej diagramów $\vert det \big( K\#\tilde{K} \big) \vert = \vert det \big( K \big) \vert \times \vert det \big( \tilde{K} \big) \vert$. Ponadto jeżeli wartości w odpowiadających macierzach diagonalnych wynoszą $\lbrace \vert d_{1} \vert, \cdots, \vert d_{k} \vert \rbrace$, oraz $\lbrace \vert \tilde {  d_{1}} \vert , \cdots,  \vert\tilde{ d_{k}} \vert \rbrace$, to wartości w macierzy diagonalnej dla diagramu sumy spójnej wynoszą $\lbrace 1, \vert d_{1}, \cdots, \vert d_{k}, \vert \tilde {d_{1}} \vert, \cdots, \vert \tilde{d_{k}} \vert\rbrace$.
 \end{twierdzenie}
 
 \begin{proof}
@@ -686,7 +715,7 @@ ${\Huge{0}}$ & ${\Huge{$\tilde{A}$}}$ & \begin{matrix}
 \end{center}
 
 Na podstawie wniosku o szachownicy diagramu $\sum_{m=1}^i a_{m,k}=\mp 1$. Zatem $\vert det \big(A_{L\#\tilde{L}} \big) \vert = 1 \times \vert det \big(A_{L} \big) \vert \times \vert det \big(A_{\tilde{L}} \big) \vert$. 
-Ponadto przesuwając 1 w lewy górny róg macierzy i stosując proces diagonalizacji otrzymamy, że elementami macierzy diagonalnej są $\lbrace 1, d_{1}, \cdots, d_{k}, \tilde {d_{1}}, \cdots, \tilde{d_{k}} \rbrace$.
+Ponadto przesuwając 1 w lewy górny róg macierzy i stosując proces diagonalizacji otrzymamy, że elementami macierzy diagonalnej są $\lbrace 1, \vert d_{1} \vert, \cdots, \vert d_{k} \vert,  \vert \tilde {d_{1}} \vert, \cdots, \vert \tilde{d_{k}}  \vert \rbrace$.
 
 \end{proof}
 
@@ -709,7 +738,7 @@ Skończenie generowana grupa przemienna jest izomorficzna z produktem grup cykli
 \end{twierdzenie}
 Grupa kolorowań ma zatem postać: $Col(L) \cong \prod_{i=1}^m \Z_{n_{i}}$. \\
 Z definicji grupy wynika że $Col(L) \cong \Z^m/\big(A\Z^m\big)$. Niech $A=X^{-1}DY^{-1}$ \\
-$\Z^m/\big(A\Z^m\big) \cong \Z^m/\big(X^{-1}DY^{-1}\Z^m\big)  \cong \Z^m/\big(D\Z^m\big) \cong \Z^m/\big(\prod_{i=1}^md_{i}\Z\big) \cong \prod_{i=1}^m \Z_{d_{i}}$ 
+$\Z^m/\big(A\Z^m\big) \cong \Z^m/\big(X^{-1}DY^{-1}\Z^m\big)  \cong \Z^m/\big(D\Z^m\big) \cong \Z^m/\big(\prod_{i=1}^m \vert d_{i} \vert \Z\big) \cong \prod_{i=1}^m \Z_{\vert d_{i} \vert}$ 
 
 Klasa izomorfizmów grupy jest dobrze zdefiniowana. Wyznacznik, oraz wartości w macierzy diagonalnej nie zależą od wyboru diagramu, sposobu indeksowania łuków ani skrzyżowań. Produkt grup cyklicznych izomorficzny z grupą kolorowania jest niezmiennikiem węzła. \\
 \textbf{Wniosek:} Grupa kolorowań jest nieskończona $\Leftrightarrow$ $det(\big(L\big) = 0$.
@@ -834,7 +863,7 @@ Stąd macierz $A_{k} $ może zostać przekształcona do postaci diagonalnej taki
 
  \textbf{Przykład 2:}
  Niech $K'_{k}$ będą tymi węzłami z poprzedniego przykładu że, wyznacznik diagramu jest pewną potęgą 3. Czy dla pewnego $k\geq9$, $K_{k}$  jest splotem pewnej, większej od 1, liczby trójlistników? \\ \\
- Z poprzedniego twierdzenia wyznacznik splotu węzłów, jest iloczynem wyznaczników diagramów. Zatem splot n trójlistników ma wyznacznik $3^n$. Wobec tego istnieje węzeł $K'_{k}$, że wyznacznik jego diagramu jest równy wyznacznikowi splotu trójlistników. Z twierdzenia wiadomo również że rozkład wyznacznika diagramu na iloczyn wartości na głównej przekątnej w macierzy diagonalnej jest jego niezmiennikiem. Macierz diagonalna odpowiadająca $L_{k}$, ma na głównej przekątnej wartości $\lbrace -1, -1, \cdots, -1, 3^n_{k} \rbrace$, zaś macierz diagonalna odpowiadająca diagramowi splotu trójlistników ma wartości $\lbrace 3, 3, \cdots, 3, 3 \rbrace$. Stąd żaden splot trójlistników nie jest węzłem postaci $K_{k}$.
+ Z poprzedniego twierdzenia wyznacznik splotu węzłów, jest iloczynem wyznaczników diagramów. Zatem splot n trójlistników ma wyznacznik $3^n$. Wobec tego istnieje węzeł $K'_{k}$, że wyznacznik jego diagramu jest równy wyznacznikowi splotu trójlistników. Z twierdzenia wiadomo również że rozkład wyznacznika diagramu na iloczyn wartości na głównej przekątnej w macierzy diagonalnej jest jego niezmiennikiem. Macierz diagonalna odpowiadająca $L_{k}$, ma na głównej przekątnej wartości $\lbrace 1, 1, \cdots, 1, 3^n_{k} \rbrace$, zaś macierz diagonalna odpowiadająca diagramowi splotu trójlistników ma wartości $\lbrace 3, 3, \cdots, 3, 3 \rbrace$. Stąd żaden splot trójlistników nie jest węzłem postaci $K_{k}$.
  
 
  
