@@ -136,7 +136,7 @@ Szachownica diagramu to przyporządkowanie każdemu regionowi jednego z 2 kolor�
 			\includegraphics[scale=0.3]{2/Obrazy/ArcRegion3} \\
 
 
-Dla każdego skrzyżowania $c_{j}$ równanie można przedstawić na 2 sposoby. 
+
 \begin{lemat}
 Dla każdego węzła K istnieje szachownica jego diagramu.  
 \end{lemat}
@@ -163,6 +163,7 @@ Weźmy dowolny region diagramu L. Ustalmy punkt P należący do tego regionu. We
 Zatem suma krzywych dzieli węzeł na 2 części. Ponadto obie krzywe przecinają parzystą liczbę łuków. Zatem każda z krzywych przecina taką samą liczbę łuków modulo 2. Stąd kolor regionu nie zależy od wyboru krzywej, więc szachownica diagramu istnieje zawsze. 
 
 \end{proof}
+Dla każdego skrzyżowania $c_{j}$ równanie można przedstawić na 2 sposoby. 
 
 \begin{definicja}
 Wybór znaku równania kolorowania nazywa się dobrym, gdy przyjmuje następującą postać: 
@@ -190,7 +191,7 @@ Ustalmy dowolny łuk $b_{j}$, z kolorem  $a_{j}$. Łuk $b_{j}$ składa się z pe
   			\includegraphics[scale=0.3]{2/Obrazy/zerosum2}
 \end{center}
 Ponieważ znaki równań zostały  \emph{wybrane dobrze}, znak $a_{j}^{i}$ w równaniu skrzyżowania  
-$c_{j1}$, jest przeciwny do znaku $a_{j}^{i}$ w równaniu skrzyżowania $c_{j2}$. Wobec czego równania dla krótkich łuków sumują się do 0, dla każdego i. Zatem sumują się również do 0 dla równań kolorowań łuków zwyczajnych.
+$c_{j1}$, jest przeciwny do znaku $a_{j}^{i}$ w równaniu skrzyżowania $c_{j2}$. Wobec czego równania dla krótkich łuków sumują się do 0, dla każdego i. Zatem sumują się również do 0 dla równań kolorowań zwykłych łuków.
 \end{proof}
 
 \textbf{Wniosek:} Niech łuk j, ma początek w skrzyżowaniu $c_{m}$. Zaczynając w $c_{m}$ a następnie idąc wzdłuż łuku i sumując współczynniki przy j-tym łuku w mijanych równaniach skrzyżowań, suma zawsze wynosi $\pm 1$.
@@ -228,7 +229,7 @@ Niech L będzie diagramem zorientowanym. Ponieważ węzeł nie zawiera łuków z
 
 Niech L będzie diagramem bez łuków zamkniętych, B zbiorem łuków, $( a_{1}, \ldots, a_{k})$ jego kolorowaniem modulo n, C zbiorem skrzyżowań.  
 \begin{definicja}
-Macierz kolorowania $A_{+}$ to macierz powstała ze współczynników występujących w równaniach kolorowań diagramu L. $A_{+}=(a_{ij})$, gdzie  $a_{ij}$ odpowiada współczynnikowi przy kolorze i-tego łuku w równaniu $c_{j}$-tego skrzyżowania. 
+Macierz kolorowania $A_{+}$ to macierz powstała ze współczynników występujących w równaniach kolorowań diagramu L, przy czym znaki równań kolorowań zostały wybrane dobrze. $A_{+}=(a_{ij})$, gdzie  $a_{ij}$ odpowiada współczynnikowi przy kolorze i-tego łuku w równaniu $c_{j}$-tego skrzyżowania. 
 \end{definicja}
 Proces tworzenia macierzy $A_{+}$, dla węzła $7_{3}$ został przedstawiony poniżej. \\
 
@@ -265,13 +266,13 @@ $\newline A_{+} = \bordermatrix { ~ & 1 & 2 & 3 & 4 & 5 & 6 & 7  \cr
 
 \end{center}
 $\newline$
-\textbf{Obserwacja:} Równania kolorowań diagramu L są liniowo zależne, wobec czego wyznacznik macierzy kolorowania $\vert det  \big(A_{+}\big) \vert = 0$.
+\textbf{Obserwacja:} Równania kolorowań diagramu L są liniowo zależne, bo sumują się do 0. Zatem wyznacznik macierzy kolorowania $\vert det  \big(A_{+}\big) \vert = 0$.
   
   \begin{definicja}
-	Macierz kolorowań $A$ wymiaru $(k-1) \times (k-1)$, to minor macierzy $A_{+}$ powstały poprzez usunięcie jednego wiersza i jednej kolumny.
+	Macierz kolorowań $A$ wymiaru $(k-1) \times (k-1)$, to dowolny minor macierzy $A_{+}$ powstały poprzez usunięcie jednego wiersza i jednej kolumny.
   \end{definicja}
     \begin{definicja}
-    Wyznacznik diagramu $ det \big(L\big)$ to wyznacznik $\vert det \big(A\big) \vert$.
+    Wyznacznik diagramu $ det \big(L\big)$ to moduł z wyznacznika $\vert det \big(A\big) \vert$.
     \end{definicja}
     
 \begin{twierdzenie}
@@ -279,7 +280,7 @@ Wyznacznik diagramu jest dobrze określony, nie zależy od wyboru minora macierz
 \end{twierdzenie}
 
 \begin{proof}
-Niech $A_{i,j}$ oznacza minor powstały poprzez usunięcie i-tego wiersza, oraz j-tej kolumny.W macierzy $A_{+}$ suma elementów w wierszu, oraz suma elementów w kolumnie równa się 0. Niech X będzie macierzą $k \times k$, oraz X = 
+Niech $A_{i,j}$ oznacza minor powstały poprzez usunięcie i-tego wiersza, oraz j-tej kolumny. W macierzy $A_{+}$ suma elementów w wierszu, oraz suma elementów w kolumnie równa się 0, ponieważ znaki równań są wybrane dobrze. Niech X będzie macierzą $k \times k$, oraz X = 
 $
 \begin{pmatrix}
  1 & \cdots & 1 \\
@@ -288,10 +289,10 @@ $
 \end{pmatrix}
 $. Rozważmy \\
 \begin{center}
- $det\big( A+X \big)=det \begin{pmatrix}
+ $det\big( A_{+}+X \big)=det \begin{pmatrix}
  1+a_{1,1} & \cdots & 1+a_{1,k} \\
  \vdots & \ddots & \vdots \\
- 1+1+a_{k,1} & \cdots & 1+a_{k,k} \\
+ 1+a_{k,1} & \cdots & 1+a_{k,k} \\
 \end{pmatrix}$ \\
 \end{center} 
 Suma elementów w każdej kolumnie, oraz w każdym wierszu równa się k. Wyznacznik zostanie obliczony w następujących krokach:
@@ -304,7 +305,7 @@ $det \begin{pmatrix}
  \vdots & \ddots & \vdots \\
   k & \cdots &  k \\ 
  \vdots & \ddots & \vdots \\
- 1+1+a_{k,1} & \cdots & 1+a_{k,k} \\
+ 1+a_{k,1} & \cdots & 1+a_{k,k} \\
 \end{pmatrix}$ \\
 \end{center}
 
@@ -340,7 +341,7 @@ $k \times det \begin{pmatrix}
 \end{pmatrix}$ \\
 \end{center}
 
-Korzystając z rozwinięcia Lalpace'a względem j-tej kolumny $\vert det  \big(A+X \big) \vert = k^2 \times \vert det \big( A_{i,j} \big) \vert$, dla każdego $i, j$. Zatem $det \big( A_{i,j} \big)$ nie zależy do wyboru $i, j$. 
+Korzystając z rozwinięcia Lalpace'a względem j-tej kolumny: \\ $\vert det  \big(A+X \big) \vert = k^2 \times \vert (-1)^{i+j} \times det \big( A_{i,j} \big) \vert$, dla każdego $i, j$. Zatem $\vert det \big( A_{i,j} \big) \vert$ nie zależy do wyboru $i, j$. 
 
 \end{enumerate}
 
@@ -358,14 +359,14 @@ Niech A będzie macierzą o wyrazach całkowitych. Istnieją macierze X, Y o wyr
 \begin{proof}
 Niech A będzie macierzą wymiaru $k \times k$, oraz  $a$ liczbą całkowitą. Ustalmy macierze:
 \begin{itemize}
-\item $Z^1_{i,j}$  -  Macierz odpowiadająca transpozycji współrzędnych wektora (i,j),
+\item $Z^1_{i,j}$  -  Macierz odpowiadająca transpozycji i-tej, oraz j-tego wektora macierzy A,
 
-\item $Z^2_{i,aj}$ -  Macierz odpowiadająca dodaniu do  i-tej współrzędnej, a-tą krotność j-tej współrzędnej.
+\item $Z^2_{i,aj}$ -  Macierz odpowiadająca dodaniu do  i-tego wektora, a-tą krotność j-tego wektora.
 \end{itemize}
 Każda z powyższych macierzy ma wyznacznik 1. \\
 $\textbf{Krok 1:}$ Mnożąc macierz $A$ z lewej lub prawej przez $Z^1$ da się 
-ją przekształcić do postaci $A^(1)$, takiej że najmniejszy co do modułu, niezerowy wyraz znajduje się w lewym górnym rogu macierzy. Następnie mnożąc z lewej lub prawej przez 
-$Z^2_{i,a1}$, można przekształcić macierz do postaci $A^(2)$ takiej że, wartość bezwzględna każdego elementu leżącego w pierwszym wierszu lub pierwszej kolumnie jest mniejsza od wartości bezwzględnej elementu $a_{1,1}$. \\
+ją przekształcić do postaci $A^{(1)}$, takiej że najmniejszy co do modułu, niezerowy wyraz znajduje się w lewym górnym rogu macierzy. Następnie mnożąc z lewej lub prawej przez 
+$Z^2_{i,a1}$, można przekształcić macierz do postaci $A^{(2)}$ takiej że, wartość bezwzględna każdego elementu leżącego w pierwszym wierszu lub pierwszej kolumnie jest mniejsza od wartości bezwzględnej elementu $a_{1,1}$. \\
 $\textbf{Krok 2:}$ Powtarzając Krok 1, można sprowadzić macierz do postaci 
 \begin{center}
 $A^{(n_{1})}=\begin{pmatrix}
@@ -385,7 +386,7 @@ a_{1,1} & 0 & 0 & \cdots & 0 \\
 0 & 0 & a_{k,3} & \cdots & a_{k,k} \\
 \end{pmatrix}$ \\
 \end{center}
-$\textbf{Krok 4:}$ Indukcyjnie, macierz A może zostać sprowadzona do postaci diagonalnej D. Operacje wykonywane na kolumnach odpowiadają mnożeniu macierz A przez $Z^i$ z prawej strony, na wierszach przez mnożenie z lewej strony. Zatem macierze X, Y są postaci: \\
+$\textbf{Krok 4:}$ Indukcyjnie, macierz A może zostać sprowadzona do postaci diagonalnej D. Operacje wykonywane na kolumnach odpowiadają mnożeniu macierzy A przez $Z^i$ z prawej strony, na wierszach przez mnożenie z lewej strony. Zatem macierze X, Y są postaci: \\
 
 	\begin{minipage}{0.5\textwidth}
 	\begin{center}
@@ -404,13 +405,14 @@ $Y=\prod_{n} Z^n$.
 $\newline$
 $Z^m, Z^n \in \lbrace Z^1_{i(m),j(m)}, Z^2_{i(m),aj(m)} \rbrace$,odpowiadają kolejno wykonywanym operacjom wierszowym i kolumnowym. Ponieważ $\vert det(Z^i) \vert=1 \Rightarrow \vert det(D) \vert= \vert \prod^k_{i=1} d_{k} \vert = \vert det(XAY) \vert = \vert det(A) \vert$, 
 
+
 \end{proof}
 
 \begin{twierdzenie}
 Wyznacznik diagramu L, oraz wartości w odpowiadającej mu macierzy diagonalnej są niezmiennikiem węzła.
 \end{twierdzenie}
 \begin{proof}
-Niech K będzie węzłem, L jego diagramem, B zbiorem łuków,  C zbiorem skrzyżowań, $\lbrace a_{1}, \ldots, a_{k}\rbrace$ jego kolorowaniem modulo n, $A_{+}$ macierzą kolorowania, $A$ minorem $A_{+}$, powstałym po usunięciu k-tego wiersza i k-tej kolumny. Wystarczy sprawdzić że wyznacznik diagramu oraz struktura macierzy diagonalnej nie zmienia się pod wpływem ruchów Reidemeistera.  
+Niech K będzie węzłem, L jego diagramem, B = $\lbrace b_{1}, \ldots, b_{k}\rbrace$ zbiorem łuków,  C zbiorem skrzyżowań, $\lbrace a_{1}, \ldots, a_{k}\rbrace$ jego kolorowaniem modulo n, $A_{+}$ macierzą kolorowania, $A$ minorem $A_{+}$, powstałym po usunięciu k-tego wiersza i k-tej kolumny. Wystarczy sprawdzić że wyznacznik diagramu oraz struktura macierzy diagonalnej nie zmienia się pod wpływem ruchów Reidemeistera.  
 \begin{enumerate}
 \item Pierwszy ruch Reidemeistera. Bez straty ogólności można założyć że ruch Reidemeistera jest przeprowadzany na k-tym łuku, pomiędzy i, oraz i+1 skrzyżowaniem. Dodatkowo można przyjąć że indeksy skrzyżowań do których dochodzi łuk k są mniejsze od i+1, oraz indeksy skrzyżowań do których dochodzi k+1, są większe od i. W rezultacie,  macierz $A'_{+}$  po transformacji, ma wymiar $k+1$. Elementy o obu indeksach mniejszych  od $k$ pozostają niezmienione.
 
@@ -449,7 +451,6 @@ Niech K będzie węzłem, L jego diagramem, B zbiorem łuków,  C zbiorem skrzy�
 
 Równania skrzyżowań o indeksach od 1 do i nie zmieniają się. W równaniach skrzyżowań o indeksach większych od i, k-ty kolor zostaje zastąpiony k+1-szym. Ostatni wiersz macierzy wynika z równania $c_{k+1}$ skrzyżowania. Na mocy lematu znaki równań mogą być tak dobrane aby sumowały się one do 0. Co więcej taki dobór znaków jest również właściwy dla macierzy $A_{+}$. Niech $A'$ będzie minorem $A'_{+}$ powstałym poprzez usunięcie ostatniej kolumny i ostatniego wiersza. 
 
-\begin{minipage}{0.5\textwidth}
 \begin{center}
 
 			$\newline
@@ -462,8 +463,7 @@ Równania skrzyżowań o indeksach od 1 do i nie zmieniają się. W równaniach 
 			\end{pmatrix}$
 			
 \end{center}
-\end{minipage}
-\begin{minipage}{0.5\textwidth}
+
 Dodając do k-tego wiersza sumę pozostałych wierszy otrzymamy macierz:
 \begin{center}
 
@@ -474,11 +474,11 @@ Dodając do k-tego wiersza sumę pozostałych wierszy otrzymamy macierz:
 			\end{pmatrix}$
 			
 \end{center}
-\end{minipage}
+
 
 Stąd korzystając z rozwinięcia Laplace'a względem ostatniego wiersza, $\vert det \big(A'\big) \vert = \vert 1 \times det \big(A\big) \vert$. Przenosząc element $a_{k,k} =1$ w lewy górny róg macierzy i powtarzając rozumowanie z twierdzenia o postaci macierzy diagonalnej, otrzymujemy, że jeśli macierz diagonalna odpowiadająca $A$ ma wartości na głównej przekątnej $\lbrace \vert d_{1} \vert, \cdots, \vert d_{k-1} \vert \rbrace$, to macierz diagonalna odpowiadająca $A'$, ma wartości $\lbrace 1, \vert d_{1} \vert, \cdots, \vert d_{k-1} \vert \rbrace$
 
-\item Drugi ruch Reidemeistera. Bez straty ogólności można założyć że ruch Reidemeistera dotyczy i-tego, oraz k-tego łuku, gdzie i-ty łuk jest łukiem górnym, oraz ruch jest pomiędzy pomiędzy skrzyżowaniami $ c_{j}, c_{j+1}$. 
+\item Drugi ruch Reidemeistera. Bez straty ogólności można założyć że ruch Reidemeistera dotyczy i-tego, oraz k-tego łuku, gdzie i-ty łuk jest łukiem górnym, oraz ruch jest pomiędzy  skrzyżowaniami $ c_{j}, c_{j+1}$. 
 
 \begin{center}
 			\includegraphics[scale=0.25]{2/Obrazy/R2det}
@@ -517,7 +517,7 @@ Niech indeksy skrzyżowań do których dochodzi łuk k są mniejsze od i+1, oraz
 		
 \end{center}
 
-Po wykonaniu na macierzy $A'$ następujących operacji: Dodanie do ostatniej(k+1) kolumny sumy pozostałych kolumn, oraz dodania do przedostatniego wiersza (k) sumy wierszy od 1 do k-1, oraz zastosowaniu rozwinięcia Laplace'a otrzymamy: $\vert det \big( A' \big) \vert = \vert det \big( A \big) \vert$. Macierz diagonalna ma postać $\lbrace 1, 1, \vert d_{1} \vert, \cdots, \vert d_{k} \vert \rbrace$. Argumentacja jest analogiczna jak w pierwszym ruchu Reidemeistera.
+Po wykonaniu na macierzy $A'$ następujących operacji: dodanie do ostatniej (k+1) kolumny sumy pozostałych kolumn, oraz dodanie do przedostatniego wiersza (k) sumy wierszy od 1 do k-1, oraz zastosowaniu rozwinięcia Laplace'a otrzymamy $\vert det \big( A' \big) \vert = \vert det \big( A \big) \vert$. Macierz diagonalna ma postać $\lbrace 1, 1, \vert d_{1} \vert, \cdots, \vert d_{k} \vert \rbrace$. Argumentacja jest analogiczna jak w pierwszym ruchu Reidemeistera.
  
  \item Trzeci ruch Reidemeistera. Trzeci ruch nie zmienia liczby skrzyżowań. Macierze $A_{+}$, oraz $A'_{+}$ mają wymiar $k \times k$. Bez straty ogólności można przyjąć 
 
@@ -789,7 +789,7 @@ Dodając do pierwszej kolumny, podwojoną drugą kolumnę, zamieniając pierwsz�
  \begin{center}
  
 
-$\begin{pmatrix}
+$A_{k}^{1} = \begin{pmatrix}
 -1 &  0 &  0 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 \\
  0 &  3 & -1 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 \\
  0 & -1 &  2 &-1 & 0 & 0 & \cdots & 0 & 0 & 0 \\
@@ -803,6 +803,9 @@ $\begin{pmatrix}
  
 
  Niech W będzie macierzą $n \times n$, taką że na głównej przekątnej znajdują się 2, oraz bezpośrednio nad i pod główną przekątną znajdują się -1. \\
+ \begin{center}
+ 
+
  $
  W_{n}=\begin{pmatrix}
 2 & -1 & 0 & \cdots & 0 \\
@@ -812,6 +815,7 @@ $\begin{pmatrix}
 0 & 0 & 0 &\cdots & 2 \\
  \end{pmatrix}
  $ \\
+  \end{center}
  Wtedy istnieje ciąg operacji:
 \begin{itemize}
 \item Zamiana pierwszej i drugiej kolumny
@@ -858,11 +862,82 @@ Przekształca macierz $H_{1}$ w macierz $H_{2}$:
  \end{pmatrix}$ \\
  \end{center} 
  \end{minipage}
+Macierz $A_{k}^{1}$ ma postać: \\
+\begin{center}
 
-Stąd macierz $A_{k} $ może zostać przekształcona do postaci diagonalnej takiej że na głównej przekątnej znajdują się elementy $\lbrace -1, -1, \cdots, -1, 2k-3$. Stąd $\vert det \big( L_{k} \big) \vert = 2k - 3$. Ponieważ wyznacznik diagramu jest niezmiennikiem węzła to dla każdego k, diagram przedstawia różne węzły. \\ \\
+	  $A_{k}^{1} = \begin{pmatrix}
+ -1 & 0 &  \begin{matrix}
+ 0 & 0 &\cdots & 0
+ \end{matrix} \\ 
+ 0 & 3 & \begin{matrix}
+ -1 & 0 &\cdots & 0
+ \end{matrix}
+ \\
+ 
+ \begin{matrix}
+ 0
+ \\ 0 \\ \vdots \\ 0
+ \end{matrix} & \begin{matrix}
+ -1 \\ 0 \\ \vdots \\ 0
+ \end{matrix} & ${\Large{$W_{k-3}$}}$
+ 
+ 
+ \end{pmatrix}$ \\
+
+\end{center}
+Powtarzając ciąg operacji powyżej mamy:
+
+\begin{center}
+	  $A_{k}^{i} = \begin{pmatrix}
+ -1 & 0 & \cdots & 0 & 0 &  \begin{matrix}
+ 0 & 0 &\cdots & 0
+ \end{matrix} \\ 
+ 0 & -1 & \cdots  & 0 & 0 &  \begin{matrix}
+ 0 & 0 &\cdots & 0
+ \end{matrix} 
+ \\
+ \vdots & \vdots & \ddots & \vdots & \vdots & \begin{matrix}
+ \vdots & \vdots &\ddots & \vdots
+ \end{matrix} 
+ \\ 
+  0 & 0 & \cdots  & -1 & 0 &  \begin{matrix}
+ 0 & 0 &\cdots & 0 \end{matrix}
+ \\
+ 0 & 0 & \cdots & 0 & 2i+1  & \begin{matrix}
+ -1 & 0 &\cdots & 0
+ \end{matrix}
+ \\
+ 
+ \begin{matrix}
+ 0
+ \\ 0 \\ \vdots \\ 0
+ \end{matrix} &  \begin{matrix}
+ 0
+ \\ 0 \\ \vdots \\ 0
+ \end{matrix}
+ & \begin{matrix}
+ \cdots
+ \\ \cdots \\ \ddots \\ \cdots
+ \end{matrix}
+ &
+ \begin{matrix}
+ 0
+ \\ 0 \\ \vdots \\ 0
+ \end{matrix} &
+  \begin{matrix}
+ -2i+1 \\ 0 \\ \vdots \\ 0
+ \end{matrix} & ${\Large{$W_{k-2-i}$}}$
+ 
+ 
+ \end{pmatrix}$ \\
+
+
+\end{center}
+
+Stąd macierz $A_{k} $ może zostać przekształcona do postaci diagonalnej takiej że na głównej przekątnej znajdują się elementy $\lbrace -1, -1, \cdots, -1, 2k-3 \rbrace$. Stąd $\vert det \big( L_{k} \big) \vert = 2k - 3$. Ponieważ wyznacznik diagramu jest niezmiennikiem węzła to dla każdego k, diagram przedstawia różne węzły. \\ \\
 
  \textbf{Przykład 2:}
- Niech $K'_{k}$ będą tymi węzłami z poprzedniego przykładu że, wyznacznik diagramu jest pewną potęgą 3. Czy dla pewnego $k\geq9$, $K_{k}$  jest splotem pewnej, większej od 1, liczby trójlistników? \\ \\
+ Niech $K'_{k}$ będą tymi węzłami z poprzedniego przykładu że, wyznacznik diagramu jest pewną potęgą 3. Czy dla pewnego $k\geq9$, $K_{k}$  jest sumą spójną pewnej, większej od 1, liczby trójlistników? \\ \\
  Z poprzedniego twierdzenia wyznacznik splotu węzłów, jest iloczynem wyznaczników diagramów. Zatem splot n trójlistników ma wyznacznik $3^n$. Wobec tego istnieje węzeł $K'_{k}$, że wyznacznik jego diagramu jest równy wyznacznikowi splotu trójlistników. Z twierdzenia wiadomo również że rozkład wyznacznika diagramu na iloczyn wartości na głównej przekątnej w macierzy diagonalnej jest jego niezmiennikiem. Macierz diagonalna odpowiadająca $L_{k}$, ma na głównej przekątnej wartości $\lbrace 1, 1, \cdots, 1, 3^n_{k} \rbrace$, zaś macierz diagonalna odpowiadająca diagramowi splotu trójlistników ma wartości $\lbrace 3, 3, \cdots, 3, 3 \rbrace$. Stąd żaden splot trójlistników nie jest węzłem postaci $K_{k}$.
  
 
