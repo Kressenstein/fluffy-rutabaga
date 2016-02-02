@@ -354,7 +354,7 @@ Korzystając z rozwinięcia Lalpace'a względem j-tej kolumny: \\ $\vert det  \b
 Wyznacznik diagramu jest powiązany z możliwymi kolorowaniami diagramu.
 
 \begin{lemat}
-Niech A będzie macierzą o wyrazach całkowitych. Istnieją macierze X, Y o wyrazach całkowitych, takie że $\vert det(X) \vert= \vert det(Y) \vert=1$, oraz macierz diagonalna $\vert D \vert=(\vert d_{i,i} \vert)$, jedyna z dokładnością do permutacji wyrazów na głównej przekątnej, takie że $D=XAY$.
+Niech A będzie macierzą o wyrazach całkowitych. Istnieją macierze X, Y o wyrazach całkowitych, takie że $\vert det(X) \vert= \vert det(Y) \vert=1$, oraz macierz diagonalna $\vert D \vert=(\vert d_{i,i} \vert)$, taka że $D=XAY$.
 \end{lemat}
 \begin{proof}
 Niech A będzie macierzą wymiaru $k \times k$, oraz  $a$ liczbą całkowitą. Ustalmy macierze:
@@ -407,6 +407,126 @@ $Z^m, Z^n \in \lbrace Z^1_{i(m),j(m)}, Z^2_{i(m),aj(m)} \rbrace$,odpowiadają ko
 
 
 \end{proof}
+
+Macierz diagonalna $D$, nie jest wyznaczona jednoznacznie. Dla każdej macierzy $A$, mogą istnieć różne macierze  $D_{1}$, $X_{1}$, $Y_{1}$, oraz $D_{2}$, $X_{2}$, $Y_{2}$, takie że $A=X_{1} \times D_{1} \times Y_{1}= X_{2} \times D_{2} \times Y_{2}$.
+
+\begin{twierdzenie}
+Niech $A$ będzie macierzą kolorowań diagramu L, $\lbrace D_{1}, \cdots, D_{n} \rbrace$ zbiorem wszystkich możliwych macierzy diagonalnych odpowiadających $A$. Istnieje dokładnie jedna macierz diagonalna $D_{i}$, o wartościach na głównej przekątnej $\lbrace d_{1}, \cdots, d_{k} \rbrace$, takich że dla każdego j, $d_{j} \vert d_{j+1}$. 
+\end{twierdzenie}
+
+\begin{proof}
+\textbf{Istnienie:} Weźmy dowolną macierz diagonalną $D$, wymiaru $k \times k$, o wartościach na głównej przekątnej $\lbrace d_{1}, \cdots, d_{k} \rbrace$. Weźmy element $d_{k}$. Niech $x_{i,k}$, oznacza największy wspólny dzielnik elementów $d_{i}, d_{k}$. Ponadto liczby $f_{i}=d_{i}/x_{i,k}$, oraz $f_{k}=d_{k}/x_{i,k}$, są względnie pierwsze. Istnieją zatem liczby $a, b \in \Z$, takie że $a \times f_{i} + b \times f_{k} = 1$. Rozważmy ciąg operacji:
+\begin{itemize}
+\item Dodanie do i-tej kolumny b-tej krotności k-tej kolumny,
+\item Dodanie to k-tego wiersza a-tej krotności
+\end{itemize}
+
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+
+			$D_{i}= \begin{pmatrix}
+			d_{1} & \cdots & 0 & \cdots &0 \\
+			\vdots & \ddots& \vdots & \ddots &\vdots\\
+			0 & \cdot & f_{i}x_{i,k} & \cdots & 0\\
+			\vdots & \ddots& \vdots & \ddots &\vdots\\ 
+			0 & \cdot & 0 & \cdots & f_{k}x_{i,k}\\			
+			\end{pmatrix}$
+			
+
+\end{center}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+
+			$\begin{pmatrix}
+			d_{1} & \cdots & 0 & \cdots &0 \\
+			\vdots & \ddots& \vdots & \ddots &\vdots\\
+			0 & \cdot & f_{i}x_{i,k} & \cdots & 0\\
+			\vdots & \ddots& \vdots & \ddots &\vdots\\ 
+			0 & \cdot & x_{i,k} & \cdots & f_{k}x_{i,k}\\			
+			\end{pmatrix}$
+
+			
+\end{center}
+\end{minipage}
+
+\begin{itemize}
+\item Odjęcie od i-tego wiersza $f_{i}$-tej krotności k-tego wiersza
+\item Odjęcie od k-tej kolumny $f_{k}$-tej krotności i-tej kolumny
+\item Zamiana i-tej i k-tej kolumny
+\end{itemize}
+
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+
+			$\begin{pmatrix}
+			d_{1} & \cdots & 0 & \cdots &0 \\
+			\vdots & \ddots& \vdots & \ddots &\vdots\\
+			0 & \cdot & 0 & \cdots & -f_{i}f_{k}x_{i,k}\\
+			\vdots & \ddots& \vdots & \ddots &\vdots\\ 
+			0 & \cdot & x_{i,k} & \cdots & f_{k}x_{i,k}\\			
+			\end{pmatrix}$
+			
+
+\end{center}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+
+			$\begin{pmatrix}
+			d_{1} & \cdots & 0 & \cdots &0 \\
+			\vdots & \ddots& \vdots & \ddots &\vdots\\
+			0 & \cdot & 0 & \cdots & -f_{i}f_{k}x_{i,k}\\
+			\vdots & \ddots& \vdots & \ddots &\vdots\\ 
+			0 & \cdot & x_{i,k} & \cdots & 0\\			
+			\end{pmatrix}$
+			
+\end{center}
+\end{minipage}
+\begin{itemize}
+\item Zamiana i-tego i k-tego wiersza
+\end{itemize}
+
+\begin{center}
+
+			$\begin{pmatrix}
+			d_{1} & \cdots & 0 & \cdots &0 \\
+			\vdots & \ddots& \vdots & \ddots &\vdots\\
+			0 & \cdot & x_{i,k} & \cdots & 0\\
+			\vdots & \ddots& \vdots & \ddots &\vdots\\ 
+			0 & \cdot & 0 & \cdots & -f_{i}f_{k}x_{i,k}\\			
+			\end{pmatrix}$
+			
+\end{center}
+Powtarzając rozumowanie dla wszystkich $i\in \lbrace 1, \cdots, k-1 \rbrace$, otrzymamy że dla każdego i, $d_{i} \vert d_{k}$. Następnie powtarzając całe rozumowanie dla $d_{k}$, otrzymamy że  dla każdego i, $d_{i} \vert d_{k-1}$. Ponadto w dalszym ciągu $d_{k-1} \vert d_{k}$, bo dla każdego j, $f_{j_{1}},f_{j_{2}}$, są względnie pierwsze. Rozumując indukcyjnie przekształcimy macierz diagonalną D to żądanej postaci. \\ \\
+\textbf{Jedyność:} Załóżmy nie wprost że istnieją 2 macierze diagonalne $D_{1}, D_{2}$, oraz obie spełniają warunek $d_{i} \vert d_{i+1}$. Istnieje zatem najmniejsze i, że $d_{i}^{1} \neq d_{i}^{2}$. Niech $X_{1}$, $Y_{1}$, $X_{2}$, $Y_{2}$, będą odpowiadającymi macierzami przejść. Z równości $A=X_{1} \times D_{1} \times Y_{1}= X_{1} \times D_{1} \times Y_{1}$, mamy $D_{1} =X_{1}^{-1} \times X_{2} \times D_{2} \times Y_{2}\times Y_{1}^{-1}$. Ponieważ dla $j<i$, $d_{j}^{1}= d_{j}^{2}$, to macierze $X_{1}^{-1} \times X_{2}$, oraz $Y_{1}^{-1} \times Y_{2}$, mają postać: \\
+
+
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+
+			$X_{1}^{-1} \times X_{2}=\begin{pmatrix}
+			${\Huge{I}}$ & ${\Huge{0}}$ \\
+			${\Huge{0}}$ & ${\Huge{$X'$}}$ \\
+			\end{pmatrix}$
+			
+
+\end{center}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+
+			$Y_{2}\times Y_{1}^{-1}=\begin{pmatrix}
+			${\Huge{I}}$ & ${\Huge{0}}$ \\
+			${\Huge{0}}$ & ${\Huge{$Y'$}}$ \\
+			\end{pmatrix}$
+			
+\end{center}
+\end{minipage} 
+
+Bez straty ogólności można przyjąć że $d_{i}^{1}$ nie dzieli $d_{i}^{2}$. Ponieważ dla każdego j większego od i, $d_{i}^{1}$ dzieli $d_{j}^{1}$, to dowolna kombinacja liniowa $\Sigma_{j=i}^{k} d_{j}^{1} \times g_{j}$, jest podzielna przez $d_{i}^{1}$,  gdzie $g_{j}$, są współczynnikami całkowitymi zależnymi od elementów macierzy $X'$, oraz $Y'$. Ale z założenia $\Sigma_{j=i}^{k} d_{j}^{1} \times g_{j}= d_{i}^{2}$, co jest sprzeczne z faktem że $d_{i}^{1}$ nie dzieli $d_{i}^{2}$.
+ 
+ \end{proof}
 
 \begin{twierdzenie}
 Wyznacznik diagramu L, oraz wartości w odpowiadającej mu macierzy diagonalnej są niezmiennikiem węzła.
@@ -519,8 +639,82 @@ Niech indeksy skrzyżowań do których dochodzi łuk k są mniejsze od i+1, oraz
 
 Po wykonaniu na macierzy $A'$ następujących operacji: dodanie do ostatniej (k+1) kolumny sumy pozostałych kolumn, oraz dodanie do przedostatniego wiersza (k) sumy wierszy od 1 do k-1, oraz zastosowaniu rozwinięcia Laplace'a otrzymamy $\vert det \big( A' \big) \vert = \vert det \big( A \big) \vert$. Macierz diagonalna ma postać $\lbrace 1, 1, \vert d_{1} \vert, \cdots, \vert d_{k} \vert \rbrace$. Argumentacja jest analogiczna jak w pierwszym ruchu Reidemeistera.
  
- \item Trzeci ruch Reidemeistera. Trzeci ruch nie zmienia liczby skrzyżowań. Macierze $A_{+}$, oraz $A'_{+}$ mają wymiar $k \times k$. Bez straty ogólności można przyjąć 
+ \item Trzeci ruch Reidemeistera. Trzeci ruch nie zmienia liczby skrzyżowań. Macierze $A_{+}$, oraz $A'_{+}$ mają wymiar $k \times k$. Diagram przed i po wykonaniu ruchu, oraz odpowiadające im macierze kolorowań zostały przedstawione poniżej.
+ 
+ \begin{center}
+ 			\includegraphics[scale=0.3]{2/Obrazy/R3det}
+ \end{center}
 
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+
+			$\begin{pmatrix}
+			\begin{matrix}
+			-1 & 2 & 0 & -1 & 0 & 0 \\
+			0 & -1 & -2 & 0 & -1 & 0 \\
+			0 & 0 & 2 & -1 & 0 & -1 \\
+			\end{matrix} & ${\Huge{0}}$ \\
+			${\Huge{$A_{x}$}}$ & ${\Huge{$A_{y}$}}$
+
+
+			\end{pmatrix}$
+			
+
+\end{center}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+			$\begin{pmatrix}
+			\begin{matrix}
+			0 & 0 & 0 & -1 & 2 & -1 \\
+			0 & -1 & -2 & 0 & -1 & 0 \\
+			-1 & 0 & 2 & -1 & 0 & 0 \\
+			\end{matrix} & ${\Huge{0}}$ \\
+			${\Huge{$A_{x}$}}$ & ${\Huge{$A_{y}$}}$
+
+
+			\end{pmatrix}$
+\end{center}
+\end{minipage} 
+
+Ponadto łuk $a_4$ występuje jedynie w równaniach skrzyżowań $c_{3}$, oraz $c_{1}$. Wynika stąd ze czwarta kolumna macierzy $A_{x}$ jest równa 0. Niech macierze $A$, oraz $A'$ będą macierzami powstałymi po usunięciu pierwszego wiersza i trzeciej kolumny. Rozważmy ciąg operacji.
+
+\begin{minipage}{0.5\textwidth}
+
+Dla macierzy $A'$:
+
+\begin{itemize}
+\item Odjęcie czwartej kolumny od szóstej kolumny,
+\item Zamiana pierwszego i drugiego wiersza,
+\item Zamiana pierwszej i czwartej kolumny.
+\end{itemize}
+	
+
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+
+Dla macierzy $A$:
+\begin{itemize}
+\item Odjęcie czwartej kolumny od pierwszej kolumny,
+\item Zamiana pierwszego i drugiego wiersza,
+\item Zamiana pierwszej i czwartej kolumny.
+\end{itemize}
+\end{minipage} 
+
+Wtedy obie macierze zostaną przekształcone do postaci:
+
+\begin{center}
+			$\begin{pmatrix}
+			\begin{matrix}
+			-1 & 0 & 0 & 0 & 0 \\
+			0 & -1 & 0 & -1 & 0 \\
+			\end{matrix} & ${\Huge{0}}$ \\
+			${\Huge{$A'_{x}$}}$ & ${\Huge{$A_{y}$}}$
+			\end{pmatrix}$
+			
+\end{center}
+
+Gdzie, $A'_{x}$ jest macierzą powstałą przez usunięcie trzeciej kolumny z macierzy $A_{x}$. Zatem sprowadzając macierze do postaci diagonalnej otrzymujemy że $det \vert A' \vert = det \vert A' \vert $, oraz odpowiadające macierze diagonalne są równe $D'=D$.
 \end{enumerate}
 \end{proof}
 
@@ -938,7 +1132,7 @@ Stąd macierz $A_{k} $ może zostać przekształcona do postaci diagonalnej taki
 
  \textbf{Przykład 2:}
  Niech $K'_{k}$ będą tymi węzłami z poprzedniego przykładu że, wyznacznik diagramu jest pewną potęgą 3. Czy dla pewnego $k\geq9$, $K_{k}$  jest sumą spójną pewnej, większej od 1, liczby trójlistników? \\ \\
- Z poprzedniego twierdzenia wyznacznik splotu węzłów, jest iloczynem wyznaczników diagramów. Zatem splot n trójlistników ma wyznacznik $3^n$. Wobec tego istnieje węzeł $K'_{k}$, że wyznacznik jego diagramu jest równy wyznacznikowi splotu trójlistników. Z twierdzenia wiadomo również że rozkład wyznacznika diagramu na iloczyn wartości na głównej przekątnej w macierzy diagonalnej jest jego niezmiennikiem. Macierz diagonalna odpowiadająca $L_{k}$, ma na głównej przekątnej wartości $\lbrace 1, 1, \cdots, 1, 3^n_{k} \rbrace$, zaś macierz diagonalna odpowiadająca diagramowi splotu trójlistników ma wartości $\lbrace 3, 3, \cdots, 3, 3 \rbrace$. Stąd żaden splot trójlistników nie jest węzłem postaci $K_{k}$.
+ Z poprzedniego twierdzenia wyznacznik splotu węzłów, jest iloczynem wyznaczników diagramów. Zatem splot n trójlistników ma wyznacznik $3^n$. Wobec tego istnieje węzeł $K'_{k}$, że wyznacznik jego diagramu jest równy wyznacznikowi splotu trójlistników. Z twierdzenia wiadomo również że rozkład wyznacznika diagramu na iloczyn wartości na głównej przekątnej w macierzy diagonalnej jest jego niezmiennikiem. Macierz diagonalna odpowiadająca $L_{k}$, ma na głównej przekątnej wartości $\lbrace 1, 1, \cdots, 1, 3^n_{k} \rbrace$, zaś macierz diagonalna odpowiadająca diagramowi splotu trójlistników ma wartości $\lbrace 1, \cdots, 1, 3, \cdots, 3 \rbrace$. Ponadto wartości w obu macierzach diagonalnych spełniają warunek $d_{i} \vert d_{i+1}$, więc macierze diagonalna tej postaci są jedyne. Stąd żaden splot trójlistników nie jest węzłem postaci $K_{k}$.
  
 
  
