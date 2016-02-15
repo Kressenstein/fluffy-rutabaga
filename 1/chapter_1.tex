@@ -9,7 +9,9 @@ jedną z nich.
 Powiemy też, co to znaczy, że dwa węzły są równoważne, tj. zastanowimy się, kiedy mając dane dwa węzły jesteśmy wstanie równoważnie (nie zmieniając ''ciągłej struktury'') 
 zdeformować jeden z nich, aby otrzymać drugi. Zastanowimy się nad tym, jakie przekształcenia możemy uważać za takie deformacje. Na koniec sformułujemy i udowodnimy 
 twierdzenie Reidemeistera.
-
+\begin{flushleft}
+•
+\end{flushleft}
 \subsection{Definicja}
 
 Zaczniemy ten rozdział do sformuowania definicji węzła. Kiedy definiuje się matemayczne pojęcie ważne jest (przynajmniej takie wrażenie ma autor tej części pracy), 
@@ -32,12 +34,12 @@ W rzeczywistości ma ono dość poważne wady.
 Po pierwsze, powyższa definicja dopuszcza tak zwane dzikie węzły (rysunek poniżej), co jest sprzeczne z intuicyjnym pojmowaniem węzła, który może mieć 
 jedynie skończenie wiele pętli. 
 
-\begin{minipage}{0.3\textwidth}
+
 	\begin{center}
 
 	\includegraphics[scale=0.3]{1/pictures/wild.png}
 	\end{center}
-	\end{minipage}
+
 
 Po drugie wychodząc od definicji \ref{zla_definicja} mielibyśmy kłopot z określeniem tego, kiedy dane dwa węzły są równoważne. Naturalną definicją wydaje się
 następująca: węzły $K$ i $J$ uważamy za równoważne, gdy istnieje rodzina węzłów $\lbrace K_t\rbrace_{t\in[0,1]}$, taka że $K_0 = K$, oraz $K_1 = J$. Oprócz tego 
@@ -46,8 +48,8 @@ węzły $K_t$ i $K_s$ powinny leżeć dowolnie ''blisko'' dla $t$ dostatecznie b
 
 \begin{minipage}{0.3\textwidth}
 	\begin{center}
-
-	\includegraphics[scale=0.3]{1/pictures/loop.png}
+	
+	\includegraphics[scale=0.5]{1/pictures/loop.png} 
 	\end{center}
 	\end{minipage}
 
@@ -161,12 +163,12 @@ to są w istocie równoważne.
 Zakładająć, że węzeł ma regularny rzut na płaszczyznę, możemy w ścisły sposób zdefiniować pojęcie diagramu.
 Diagramem węzła $K$ nazywamy następującą modyfikację regularnego rzutu $K$ na płaszczyznę. Jeśli przeciwobrazem punktu $(x_0, y_0)$ jest zbiór dwuelementowy 
 $\lbrace a,b\rbrace$, wówczas w tym punkcie przecinają się dwa różne odcinki, które są rzutami dwóch różnych odcinków węzła $K$, powiedzmy $I_a, I_b$. 
-Ponieważ rzut $K$ jest rzutem regularnym, więc jeden z tych odcinków leży pod drugim, co oznaczamy, jak na poniższym rysunku. 
+Ponieważ rzut $K$ jest rzutem regularnym, więc jeden z tych odcinków leży pod drugim, co oznaczamy, jak na poniższym rysunku. \\
 
 \begin{minipage}{0.3\textwidth}
 	\begin{center}
 
-	\includegraphics[scale=0.8]{1/pictures/skrz.eps}
+	\includegraphics[scale=0.4]{1/pictures/skrz.jpg}
 	\end{center}
 	\end{minipage}
 
@@ -381,14 +383,14 @@ Na początku sformuujemy nową definicję elementarnej deformacji, równoważną
 	
 	\begin{minipage}{0.5\textwidth}
 		\begin{center}
-			\includegraphics[scale=0.15]{1/pictures/R1}
+			\includegraphics[scale=0.2]{1/pictures/R1}
 		\end{center}
 	\end{minipage}
 \item Drugi ruch Reidemeistera: 
 
 	\begin{minipage}{0.5\textwidth}
 		\begin{center}
-			\includegraphics[scale=0.15]{1/pictures/R2}
+			\includegraphics[scale=0.2]{1/pictures/R2}
 		\end{center}
 	\end{minipage}
 	
@@ -396,7 +398,7 @@ Na początku sformuujemy nową definicję elementarnej deformacji, równoważną
 
 	\begin{minipage}{0.65\textwidth}
 		\begin{center}
-			\includegraphics[scale=0.2]{1/pictures/R3}
+			\includegraphics[scale=0.25]{1/pictures/R3}
 		\end{center}
 	\end{minipage}
 	
@@ -432,12 +434,12 @@ Niestety w przypadku, kiedy skrzyżowanie i wierzchołek znajdują się na prost
 rysunku.
 
 
-\begin{minipage}{0.3\textwidth}
+
 	\begin{center}
 
-	\includegraphics[scale=0.8]{1/pictures/bad.eps}
+	\includegraphics[scale=0.5]{1/pictures/bad.jpg}
 	\end{center}
-	\end{minipage}
+
 
 Oczywiście łuków złośliwych w sensie złośliwości łuku $k$ może być więcej, niż jeden (bez zmniejszenia ogólności możemy założyć, że wewnątrz $C$ nie ma skrzyżowań - 
 to założenie będzie łatwo wynikać z dalszej części dowodu), ale będzie istniał taki, którego skrzyżowanie z $I_{i-1}$ będzie najbliżej wierzchołka $v_{i-2}$.
@@ -455,24 +457,23 @@ Wystarczy zatem pokazać, że każdą z elementarnych deformacji przeprowadzają
 wierzchołek $a_{l-1}$ na punkt $a_l$ można uzyskać za pomocą sekwencji ruchów R, co prowadzi do rozbicia problemu na wiele mniejszych podprzypadków, których lista znajduje się
 poniżej.
 
-\begin{minipage}{0.3\textwidth}
+
 	\begin{center}
 
-	\includegraphics[scale=0.8]{1/pictures/cross.eps}
+	\includegraphics[scale=0.6]{1/pictures/cross.jpg}
 	\end{center}
-	\end{minipage}
 
 Łuki skrzyżowania mogą przechodzić, albo oba nad bokami czworokąta $C$, albo oba pod bokami $C$, albo jeden może leżeć nad czworokątem, a drugi pod. Dwa pierwsze przypadki są oczywiste,
 radzimy sobie z nimi stosując trzeci ruch R, oraz w celach kosmetycznych drugi ruch R. Trzeci przypadek jest nieco trudniejszy, ale również główną rolę gra w nim trzeci ruch R. Po
 prostu można przenieść łuk, który przechodzi nad czworokątem $C$ na drugą stronę skrzyżowania łuku przechodzącego pod czworokątem $C$ i łuku $a_i v_{i-1}$, potem parokrotnie zastosować
 drugi ruch R a na koniec znów zastosować trzeci ruch R, żeby przenieść łuk, który ruszyliśmy na początku, na jego pierwotne miejsce.
 
-\begin{minipage}{0.3\textwidth}
+
 	\begin{center}
 
-	\includegraphics[scale=0.8]{1/pictures/vertex.eps}
+	\includegraphics[scale=0.8]{1/pictures/vertex.jpg}
 	\end{center}
-	\end{minipage}
+
 	
 Podprzypadek pierwszy jest prosty, wystarczy zastosować drugi ruch R. Przypadek drugi wymaga nieco komentarza. 
 
@@ -481,12 +482,12 @@ czworokąta $C$. Mamy też pewność, że efektem ubocznym tego ruchu nie będą
 wierzchołek $a_i$ na wierzchołek $a_{i+1}$. Na koniec, musimy wykonać operację odwrotną do tej, która wyrzuciła wierzchołek $v_{i+2}$ z czworokąta $C$, która sprawi, że $v_{i+2}$
 wróci na swoje pierwotne miejsce.
 
-\begin{minipage}{0.3\textwidth}
+
 	\begin{center}
 
-	\includegraphics[scale=0.8]{1/pictures/axis.eps}
+	\includegraphics[scale=0.5]{1/pictures/axis.jpg}
 	\end{center}
-	\end{minipage}
+
 	
 Ten przypadek jest prosty, żeby przenieść wierzchołek $a_i$ na drugą stronę łuku $q$ wystarczy zastosować drugi ruch R. Przypadek, kiedy łuk $q$ przechodzi nad czworokątem $C$ jest analogiczny.
 
