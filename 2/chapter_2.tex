@@ -73,7 +73,7 @@ Dwa diagramy $L_{1}, L_{2}$ są równoważne jeżeli istnieje ciąg ruchów Reid
 			\includegraphics[scale=0.25]{2/Obrazy/R3}
 		\end{center}
 	\end{minipage}
-	Zatem, kolory łuków o indeksach różnych od 7 nie ulegają zmianie. Kolor łuku $a_{7}$ zmienia się i wynosi $a_{7} \equiv a_{6} - a_{2} + a_{4}$. W otrzymane kolorowanie spełnia równania kolorowań w diagramie $L_{2}$.
+	Zatem, kolory łuków o indeksach różnych od 7 nie ulegają zmianie. Kolor łuku $a_{7}$ zmienia się i wynosi $a_{7} \equiv a_{6} - a_{2} + a_{4}$. Wtedy otrzymane kolorowanie spełnia równania kolorowań w diagramie $L_{2}$.
 \end{enumerate}
 \end{proof}
 
@@ -411,14 +411,14 @@ $Z^m, Z^n \in \lbrace Z^1_{i(m),j(m)}, Z^2_{i(m),aj(m)} \rbrace$,odpowiadają ko
 Macierz diagonalna $D$, nie jest wyznaczona jednoznacznie. Dla każdej macierzy $A$, mogą istnieć różne macierze  $D_{1}$, $X_{1}$, $Y_{1}$, oraz $D_{2}$, $X_{2}$, $Y_{2}$, takie że $A=X_{1} \times D_{1} \times Y_{1}= X_{2} \times D_{2} \times Y_{2}$.
 
 \begin{twierdzenie}
-Niech $A$ będzie macierzą kolorowań diagramu L, $\lbrace D_{1}, \cdots, D_{n} \rbrace$ zbiorem wszystkich możliwych macierzy diagonalnych odpowiadających $A$. Istnieje dokładnie jedna macierz diagonalna $D_{i}$, o wartościach na głównej przekątnej $\lbrace d_{1}, \cdots, d_{k} \rbrace$, takich że dla każdego j, $d_{j} \vert d_{j+1}$. 
+Niech $A$ będzie macierzą kolorowań diagramu L, $\lbrace D_{1}, \cdots, D_{n} \rbrace$ zbiorem wszystkich możliwych macierzy diagonalnych odpowiadających $A$. Istnieje dokładnie jedna macierz diagonalna $D_{i}$, o wartościach na głównej przekątnej $( d_{1}, \cdots, d_{k} )$, takich że dla każdego j, $d_{j} \vert d_{j+1}$. 
 \end{twierdzenie}
 
 \begin{proof}
-\textbf{Istnienie:} Weźmy dowolną macierz diagonalną $D$, wymiaru $k \times k$, o wartościach na głównej przekątnej $\lbrace d_{1}, \cdots, d_{k} \rbrace$. Weźmy element $d_{k}$. Niech $x_{i,k}$, oznacza największy wspólny dzielnik elementów $d_{i}, d_{k}$. Ponadto liczby $f_{i}=d_{i}/x_{i,k}$, oraz $f_{k}=d_{k}/x_{i,k}$, są względnie pierwsze. Istnieją zatem liczby $a, b \in \Z$, takie że $a \times f_{i} + b \times f_{k} = 1$. Rozważmy ciąg operacji:
+\textbf{Istnienie:} Weźmy dowolną macierz diagonalną $D$, wymiaru $k \times k$, o wartościach na głównej przekątnej $( d_{1}, \cdots, d_{k} )$. Weźmy element $d_{k}$. Niech $x_{i,k}$, oznacza największy wspólny dzielnik elementów $d_{i}, d_{k}$. Ponadto liczby $f_{i}=d_{i}/x_{i,k}$, oraz $f_{k}=d_{k}/x_{i,k}$, są względnie pierwsze. Istnieją zatem liczby $a, b \in \Z$, takie że $a \times f_{i} + b \times f_{k} = 1$. Rozważmy ciąg operacji:
 \begin{itemize}
-\item Dodanie do i-tej kolumny b-tej krotności k-tej kolumny,
-\item Dodanie to k-tego wiersza a-tej krotności
+\item Dodanie do i-tej kolumny b-tej krotności k-tej kolumny
+\item Dodanie to k-tego wiersza a-tej krotności i-tego wiersza
 \end{itemize}
 
 \begin{minipage}{0.5\textwidth}
@@ -498,7 +498,7 @@ Niech $A$ będzie macierzą kolorowań diagramu L, $\lbrace D_{1}, \cdots, D_{n}
 			\end{pmatrix}$
 			
 \end{center}
-Powtarzając rozumowanie dla wszystkich $i\in \lbrace 1, \cdots, k-1 \rbrace$, otrzymamy że dla każdego i, $d_{i} \vert d_{k}$. Następnie powtarzając całe rozumowanie dla $d_{k}$, otrzymamy że  dla każdego i, $d_{i} \vert d_{k-1}$. Ponadto w dalszym ciągu $d_{k-1} \vert d_{k}$, bo dla każdego j, $f_{j_{1}},f_{j_{2}}$, są względnie pierwsze. Rozumując indukcyjnie przekształcimy macierz diagonalną D to żądanej postaci. \\ \\
+Powtarzając rozumowanie dla wszystkich $i\in \lbrace 1, \cdots, k-1 \rbrace$, otrzymamy że dla każdego i, $d_{i} \vert d_{k}$. Następnie powtarzając całe rozumowanie dla $d_{k-1}$, otrzymamy że  dla każdego i, $d_{i} \vert d_{k-1}$. Ponadto w dalszym ciągu $d_{k-1} \vert d_{k}$, bo dla każdego j, $f_{j_{1}},f_{j_{2}}$, są względnie pierwsze. Rozumując indukcyjnie przekształcimy macierz diagonalną D to żądanej postaci. \\ \\
 \textbf{Jedyność:} Załóżmy nie wprost że istnieją 2 macierze diagonalne $D_{1}, D_{2}$, oraz obie spełniają warunek $d_{i} \vert d_{i+1}$. Istnieje zatem najmniejsze i, że $d_{i}^{1} \neq d_{i}^{2}$. Niech $X_{1}$, $Y_{1}$, $X_{2}$, $Y_{2}$, będą odpowiadającymi macierzami przejść. Z równości $A=X_{1} \times D_{1} \times Y_{1}= X_{1} \times D_{1} \times Y_{1}$, mamy $D_{1} =X_{1}^{-1} \times X_{2} \times D_{2} \times Y_{2}\times Y_{1}^{-1}$. Ponieważ dla $j<i$, $d_{j}^{1}= d_{j}^{2}$, to macierze $X_{1}^{-1} \times X_{2}$, oraz $Y_{1}^{-1} \times Y_{2}$, mają postać: \\
 
 
@@ -532,7 +532,7 @@ Bez straty ogólności można przyjąć że $d_{i}^{1}$ nie dzieli $d_{i}^{2}$. 
 Wyznacznik diagramu L, oraz wartości w odpowiadającej mu macierzy diagonalnej są niezmiennikiem węzła.
 \end{twierdzenie}
 \begin{proof}
-Niech K będzie węzłem, L jego diagramem, B = $\lbrace b_{1}, \ldots, b_{k}\rbrace$ zbiorem łuków,  C zbiorem skrzyżowań, $\lbrace a_{1}, \ldots, a_{k}\rbrace$ jego kolorowaniem modulo n, $A_{+}$ macierzą kolorowania, $A$ minorem $A_{+}$, powstałym po usunięciu k-tego wiersza i k-tej kolumny. Wystarczy sprawdzić że wyznacznik diagramu oraz struktura macierzy diagonalnej nie zmienia się pod wpływem ruchów Reidemeistera.  
+Niech K będzie węzłem, L jego diagramem, B = $\lbrace b_{1}, \ldots, b_{k}\rbrace$ zbiorem łuków,  C zbiorem skrzyżowań, $\lbrace a_{1}, \ldots, a_{k}\rbrace$ jego kolorowaniem modulo n, $A_{+}$ macierzą kolorowania. Wystarczy sprawdzić że wyznacznik diagramu oraz struktura macierzy diagonalnej nie zmienia się pod wpływem ruchów Reidemeistera.  
 \begin{enumerate}
 \item Pierwszy ruch Reidemeistera. Bez straty ogólności można założyć że ruch Reidemeistera jest przeprowadzany na k-tym łuku, pomiędzy i, oraz i+1 skrzyżowaniem. Dodatkowo można przyjąć że indeksy skrzyżowań do których dochodzi łuk k są mniejsze od i+1, oraz indeksy skrzyżowań do których dochodzi k+1, są większe od i. W rezultacie,  macierz $A'_{+}$  po transformacji, ma wymiar $k+1$. Elementy o obu indeksach mniejszych  od $k$ pozostają niezmienione.
 
@@ -742,7 +742,7 @@ Niech $K$, $\tilde{K}$ będą węzłami, $L$, $\tilde{L}$ ich diagramami, $A_{+}
 \end{itemize} 
 
 \begin{twierdzenie}
-Wyznacznik sumy spójnej diagramów $\vert det \big( K\#\tilde{K} \big) \vert = \vert det \big( K \big) \vert \times \vert det \big( \tilde{K} \big) \vert$. Ponadto jeżeli wartości w odpowiadających macierzach diagonalnych wynoszą $\lbrace \vert d_{1} \vert, \cdots, \vert d_{k} \vert \rbrace$, oraz $\lbrace \vert \tilde {  d_{1}} \vert , \cdots,  \vert\tilde{ d_{k}} \vert \rbrace$, to wartości w macierzy diagonalnej dla diagramu sumy spójnej wynoszą $\lbrace 1, \vert d_{1}, \cdots, \vert d_{k}, \vert \tilde {d_{1}} \vert, \cdots, \vert \tilde{d_{k}} \vert\rbrace$.
+Wyznacznik sumy spójnej diagramów $\vert det \big( K\#\tilde{K} \big) \vert = \vert det \big( K \big) \vert \times \vert det \big( \tilde{K} \big) \vert$. Ponadto jeżeli wartości w odpowiadających macierzach diagonalnych wynoszą $\lbrace \vert d_{1} \vert, \cdots, \vert d_{k} \vert \rbrace$, oraz $\lbrace \vert \tilde {  d_{1}} \vert , \cdots,  \vert\tilde{ d_{k}} \vert \rbrace$, to wartości w macierzy diagonalnej dla diagramu sumy spójnej wynoszą $\lbrace 1, \vert d_{1} \vert, \cdots, \vert d_{k} \vert, \vert \tilde {d_{1}} \vert, \cdots, \vert \tilde{d_{k}} \vert\rbrace$.
 \end{twierdzenie}
 
 \begin{proof}
